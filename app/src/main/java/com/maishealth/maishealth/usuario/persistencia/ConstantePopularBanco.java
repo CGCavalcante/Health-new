@@ -50,5 +50,8 @@ public class ConstantePopularBanco {
             "('Dorflex')," +
             "('Diazepan')," +
             "('Lasartana');";
+    public static final String INSERIR_HORARIO_MEDICO = "INSERT INTO 'horario_medico' ('data','vagas','horario') VALUES" +
+            "('30/01/2018','20','Manhã')," +
+            "('31/01/2018','15','Tarde');";
 
 }

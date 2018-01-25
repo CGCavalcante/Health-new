@@ -9,15 +9,13 @@ import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBan
 import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_PACIENTE;
 import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_PESSOA;
 import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_USUARIO;
+import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_HORARIO_MEDICO;
 
 /**
  * Classe responsável por criar tabelas e o banco de dados
  */
 
 public class DataBase extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 8;
-    private static final String DATABASE_NAME = "dbmaishealth";
-
     //TABELA PESSOA
     public static final String TABELA_PESSOA = "pessoa";
     public static final String ID_PESSOA = "id_pessoa";
@@ -26,19 +24,16 @@ public class DataBase extends SQLiteOpenHelper {
     public static final String PESSOA_DATANASC = "data_nasc";
     public static final String CPF = "cpf";
     public static final String ID_EST_USUARIO_PE = "id_est_usuario";
-
     // TABELA USUÁRIO
     public static final String TABELA_USUARIO = "usuario";
     public static final String ID_USUARIO = "id_usuario";
     public static final String USUARIO_EMAIL = "email";
     public static final String USUARIO_SENHA = "senha";
-
     //TABELA PACIENTE
     public static final String TABELA_PACIENTE = "paciente";
     public static final String ID_PACIENTE = "id_paciente";
     public static final String PACIENTE_SANGUE = "tipo_sangue";
     public static final String ID_EST_USUARIO_PA = "id_est_usuario";
-    
     //TABELA MEDICO
     public static final String TABELA_MEDICO = "medico";
     public static final String ID_MEDICO = "id_medico";
@@ -46,7 +41,6 @@ public class DataBase extends SQLiteOpenHelper {
     public static final String ESTADO = "estado";
     public static final String ESPECIALIDADE = "especialidade";
     public static final String ID_EST_USUARIO_ME = "id_est_usuario";
-
     //TABELA CONSULTA
     public static final String TABELA_CONSULTA = "consulta";
     public static final String ID_CONSULTA    = "id_consulta";
@@ -56,47 +50,48 @@ public class DataBase extends SQLiteOpenHelper {
     public static final String ID_EST_PACIENTE_CON = "id_est_paciente";
     public static final String ID_EST_MEDICO_CON = "id_est_medico";
     public static final String CONSULTA_STATUS = "status";
-
     //TABELA DOENCA CRONICA
     public static final String TABELA_DOENCACRONICA = "doenca";
     public static final String ID_DOENCA = "id_doenca";
     public static final String DOENCA_NOME = "nome";
     public static final String DOENCA_DESCRICAO = "descricao";
-
     //TABELA MEDICAMENTO
     public static final String TABELA_MEDICAMENTO = "medicamento";
     public static final String ID_MEDICAMENTO = "id_medicamento";
     public static final String MEDICAMENTO_NOME = "nome";
-
     //TABELA POSTO
     public static final String TABELA_POSTO = "posto";
     public static final String ID_POSTO = "id_posto";
     public static final String POSTO_NOME = "nome";
     public static final String POSTO_LOCAL = "local";
-
     //TABELA PACIENTE-DOENCA
     public static final String TABELA_PACIENTE_DOENCA = "paciente_doenca";
     public static final String ID_EST_PACIENTE_PA_DO = "id_paciente";
     public static final String ID_EST_DOENCA_PA_DO = "id_doenca";
-
     //TABELA MEDICO-POSTO
     public static final String TABELA_MEDICO_POSTO = "medico_posto";
     public static final String ID_EST_MEDICO_ME_POS = "id_medico";
     public static final String ID_EST_POSTO_ME_POS = "id_posto";
-
     //TABELA CONSULTA-MEDICAMENTO
     public static final String TABELA_CONSULTA_MEDICAMENTO = "consulta_medicamento";
     public static final String ID_EST_CONSULTA_CON_MEM = "id_consulta";
     public static final String ID_EST_MEDICAMENTO_CON_MEM = "id_medicamento";
-
     //TABELA SINTOMA
     public static final String TABELA_SINTOMA = "sintoma";
     public static final String SINTOMA_NOME = "nome";
-
-    //TABELE CONSULTA-SINTOMA
+    //TABELA CONSULTA-SINTOMA
     public static final String TABELA_CONSULTA_SINTOMA = "consulta_sintoma";
     public static final String ID_EST_SINTOMA_CON_SIN = "id_consulta";
     public static final String NOME_EST_SINTOMA_CON_SIN = "sintoma_nome";
+    //TABELA HORARIO MEDICO
+    public static final String TABELA_HORARIO_MEDICO = "horario_medico";
+    public static final String ID_HOR_MEDICO = "id_hor_medico";
+    public static final String DATA = "data";
+    public static final String VAGAS = "vagas";
+    public static final String HORARIO = "horario";
+    public static final String ID_EST_MEDICO = "id_est_medico";
+    private static final int DATABASE_VERSION = 8;
+    private static final String DATABASE_NAME = "dbmaishealth";
 
     public DataBase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -171,6 +166,12 @@ public class DataBase extends SQLiteOpenHelper {
                 ID_EST_SINTOMA_CON_SIN + " INTEGER, " +
                 NOME_EST_SINTOMA_CON_SIN + " TEXT NOT NULL);");
 
+        db.execSQL("CREATE TABLE " + TABELA_HORARIO_MEDICO + "(" +
+                ID_HOR_MEDICO + "INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                DATA + "TEXT NOT NULL, " + VAGAS + "INTEGER," +
+                HORARIO + "TEXT NOT NULL," +
+                ID_EST_MEDICO + "INTEGER);");
+
 
 
         db.execSQL(INSERIR_USUARIO);
@@ -178,6 +179,7 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL(INSERIR_PACIENTE);
         db.execSQL(INSERIR_MEDICO);
         db.execSQL(INSERIR_MEDICAMENTO);
+        db.execSQL(INSERIR_HORARIO_MEDICO);
 
     }
 
@@ -222,6 +224,9 @@ public class DataBase extends SQLiteOpenHelper {
 
         String query13 = "DROP TABLE IF EXISTS " + TABELA_CONSULTA_SINTOMA;
         db.execSQL(query13);
+
+        String query14 = "DROP TABLE IF EXISTS " + TABELA_HORARIO_MEDICO;
+        db.execSQL(query14);
 
         this.onCreate(db);
     }
