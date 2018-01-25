@@ -26,7 +26,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-
     <TextView
         android:id="@+id/textViewHorarioMed"
         android:layout_width="246dp"
