@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorFundo"
+    tools:context="com.maishealth.maishealth.usuario.gui.MenuPaciente">
+
+    <ImageButton
+        android:id="@+id/icAtualizarPerfil"
+        android:layout_width="246dp"
+        android:layout_height="182dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@null"
+        android:onClick="telaAtualizarPerfilPaciente"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/user_avatar"
+        />
+
+    <ScrollView
+        android:layout_marginTop="149dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorFundo"
+            tools:context="com.maishealth.maishealth.usuario.gui.MenuPaciente">
+
+            <TextView
+                android:id="@+id/lblNomePaciente"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/label_nome_do_paciente"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/bt_marcar_cons"
+                android:layout_width="285dp"
+                android:layout_height="70dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorText"
+                android:onClick="telaMarcarConsulta"
+                android:text="@string/button_marcar_consulta"
+                android:textColor="@color/colorTextoBut"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblNomePaciente" />
+
+            <Button
+                android:id="@+id/btMeuHist"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorText"
+                android:onClick="telaMeuHistorico"
+                android:text="@string/button_meu_historico"
+                android:textColor="@color/colorTextoBut"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/bt_marcar_cons"
+                app:layout_constraintStart_toStartOf="@+id/bt_marcar_cons"
+                app:layout_constraintTop_toBottomOf="@+id/bt_marcar_cons" />
+
+            <Button
+                android:id="@+id/bt_cons_pend"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorText"
+                android:onClick="telaConsultasPendentes"
+                android:text="@string/button_consultas_pendentes"
+                android:textColor="@color/colorTextoBut"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/btMeuHist"
+                app:layout_constraintStart_toStartOf="@+id/btMeuHist"
+                app:layout_constraintTop_toBottomOf="@+id/btMeuHist" />
+
+            <Button
+                android:id="@+id/bt_posto_prox"
+                android:layout_width="0dp"
+                android:layout_height="71dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorText"
+                android:onClick="telaAcharPosto"
+                android:text="@string/button_posto_mais_proximo"
+                android:textColor="@color/colorTextoBut"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/bt_cons_pend"
+                app:layout_constraintStart_toStartOf="@+id/bt_cons_pend"
+                app:layout_constraintTop_toBottomOf="@+id/bt_cons_pend" />
+
+            <Button
+                android:id="@+id/bt_sair_pac"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorText"
+                android:onClick="onClickSair"
+                android:text="@string/button_sair"
+                android:textColor="@color/colorTextoBut"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bt_posto_prox"/>
+
+
+
+
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
