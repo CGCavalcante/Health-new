@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.maishealth.maishealth.usuario.gui.AcharPostoActivity"
-    android:background="@color/colorFundo">
+    android:background="@color/colorFundo"
+    tools:context="com.maishealth.maishealth.usuario.gui.AcharPostoActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/materialup.appbar"
@@ -35,8 +35,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:text="@string/label_mapa_dos_postos"
-        android:textColor="@color/colorText"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/colorText"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -51,6 +51,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:text="@string/button_teste_login"
+        android:textColor="@color/colorText"
         app:layout_constraintEnd_toEndOf="@+id/textView6"
         app:layout_constraintStart_toStartOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
