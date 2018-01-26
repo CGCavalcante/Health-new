@@ -29,14 +29,14 @@ import static com.maishealth.maishealth.infra.ConstanteSharedPreferences.TITLE_P
 public class MarcacaoSintomasPacActivity extends AppCompatActivity {
     private static final String SINTOMA_S_INSERIDO_S_COM_SUCESSO = "Sintoma(s) Inserido(s) com sucesso!";
     private Button btnConfirmaSintoma;
-    private CheckedTextView febre;
-    private CheckedTextView ardenciaOlho;
-    private CheckedTextView dorCabeca;
-    private CheckedTextView dorAbdominal;
-    private CheckedTextView enjoo;
-    private CheckedTextView coceira;
-    private CheckedTextView bolhas;
-    private CheckedTextView olhoInchado;
+    private CheckedTextView clinicoGeral;
+    private CheckedTextView cardiologia;
+    private CheckedTextView dermatologia;
+    private CheckedTextView ginecologia;
+    private CheckedTextView oftalmologia;
+    private CheckedTextView ortopedia;
+    private CheckedTextView pediatria;
+    private CheckedTextView urologia;
     private List listaCheckbox = new ArrayList( 8);
 
 
@@ -54,14 +54,14 @@ public class MarcacaoSintomasPacActivity extends AppCompatActivity {
         });
 
         TextView lblNomePaciente = findViewById(R.id.textViewNomePacSint);
-        febre= findViewById(R.id.sintoma_febre);
-        ardenciaOlho= findViewById(R.id.sintoma_ardencia_olho);
-        dorCabeca= findViewById(R.id.sintoma_dor_de_cabeca);
-        dorAbdominal= findViewById(R.id.sintoma_dor_abdominal);
-        enjoo= findViewById(R.id.sintoma_enjoo);
-        coceira= findViewById(R.id.sintoma_coceira);
-        bolhas= findViewById(R.id.sintoma_bolhas);
-        olhoInchado= findViewById(R.id.sintoma_olhos_inchados);
+        cardiologia = findViewById(R.id.espCardiologia);
+        clinicoGeral = findViewById(R.id.espClinicoGeral);
+        dermatologia = findViewById(R.id.espDermatologia);
+        ginecologia = findViewById(R.id.espGinecologia);
+        oftalmologia = findViewById(R.id.espOftalmologia);
+        ortopedia = findViewById(R.id.espOrtopedia);
+        pediatria = findViewById(R.id.espPediatria);
+        urologia = findViewById(R.id.espUrologia);
 
         ServicosPessoa servicosPessoa = new ServicosPessoa(getApplicationContext());
         SharedPreferences sharedPreferences = getSharedPreferences(TITLE_PREFERENCES, MODE_PRIVATE);
@@ -94,7 +94,7 @@ public class MarcacaoSintomasPacActivity extends AppCompatActivity {
 
     //**olhar comentário na Activity de EscolherDiaDaConsulta
     public void marcarEnviarSintomas(View view){
-        EditText edtSintoma = findViewById(R.id.editTextOutrosSint);
+        EditText edtSintoma = findViewById(R.id.editTextSint);
         String edtSintomaString = edtSintoma.getText().toString();
         String listaSintomas[]= Mask.split(edtSintomaString);
 
@@ -119,80 +119,92 @@ public class MarcacaoSintomasPacActivity extends AppCompatActivity {
 
         boolean checked = ((CheckedTextView) view).isChecked();
         switch (view.getId()) {
-            case R.id.sintoma_ardencia_olho:
-                if (checked)
-                    { ardenciaOlho.setChecked(false);
-                    listaCheckbox.remove(ardenciaOlho.getText().toString());
-                    }
-                else {
-                    ardenciaOlho.setChecked(true);
-                    listaCheckbox.add(ardenciaOlho.getText().toString());
+
+            case R.id.espGinecologia:
+                if (checked) {
+                    ginecologia.setChecked(false);
+                    listaCheckbox.remove(ginecologia.getText().toString());
+                } else {
+                    ginecologia.setChecked(true);
+                    listaCheckbox.add(ginecologia.getText().toString());
                 }
 
                 break;
 
-            case R.id.sintoma_febre:
-                if (checked)
-                    { febre.setChecked(false);
-                    listaCheckbox.remove(febre.getText().toString());
+            case R.id.espClinicoGeral:
+                if (checked) {
+                    clinicoGeral.setChecked(false);
+                    listaCheckbox.remove(clinicoGeral.getText().toString());
+                    } else {
+                    clinicoGeral.setChecked(true);
+                    listaCheckbox.add(clinicoGeral.getText().toString());
                     }
-                else { febre.setChecked(true);
-                    listaCheckbox.add(febre.getText().toString());
-                    }
 
                 break;
 
-            case R.id.sintoma_dor_abdominal:
-                if (checked)
-                    { dorAbdominal.setChecked(false);
-                    listaCheckbox.remove(dorAbdominal.getText().toString());}
-                else { dorAbdominal.setChecked(true);
-                    listaCheckbox.add(dorAbdominal.getText().toString());}
+            case R.id.espDermatologia:
+                if (checked) {
+                    dermatologia.setChecked(false);
+                    listaCheckbox.remove(dermatologia.getText().toString());
+                } else {
+                    dermatologia.setChecked(true);
+                    listaCheckbox.add(dermatologia.getText().toString());
+                }
 
                 break;
 
-            case R.id.sintoma_dor_de_cabeca:
-                if (checked)
-                    { dorCabeca.setChecked(false);
-                    listaCheckbox.remove(dorCabeca.getText().toString());}
-                else { dorCabeca.setChecked(true);
-                    listaCheckbox.add(dorCabeca.getText().toString());}
+            case R.id.espPediatria:
+                if (checked) {
+                    pediatria.setChecked(false);
+                    listaCheckbox.remove(pediatria.getText().toString());
+                } else {
+                    pediatria.setChecked(true);
+                    listaCheckbox.add(pediatria.getText().toString());
+                }
 
                 break;
 
-            case R.id.sintoma_bolhas:
-                if (checked)
-                    { bolhas.setChecked(false);
-                    listaCheckbox.remove(bolhas.getText().toString());}
-                else { bolhas.setChecked(true);
-                    listaCheckbox.add(bolhas.getText().toString());}
+            case R.id.espUrologia:
+                if (checked) {
+                    urologia.setChecked(false);
+                    listaCheckbox.remove(urologia.getText().toString());
+                } else {
+                    urologia.setChecked(true);
+                    listaCheckbox.add(urologia.getText().toString());
+                }
 
                 break;
 
-            case R.id.sintoma_olhos_inchados:
-                if (checked)
-                    { olhoInchado.setChecked(false);
-                    listaCheckbox.remove(olhoInchado.getText().toString());}
-                else { olhoInchado.setChecked(true);
-                    listaCheckbox.add(olhoInchado.getText().toString());}
+            case R.id.espOftalmologia:
+                if (checked) {
+                    oftalmologia.setChecked(false);
+                    listaCheckbox.remove(oftalmologia.getText().toString());
+                } else {
+                    oftalmologia.setChecked(true);
+                    listaCheckbox.add(oftalmologia.getText().toString());
+                }
 
                 break;
 
-            case R.id.sintoma_enjoo:
-                if (checked)
-                    { enjoo.setChecked(false);
-                    listaCheckbox.remove(enjoo.getText().toString());}
-                else { enjoo.setChecked(true);
-                    listaCheckbox.add(enjoo.getText().toString());}
+            case R.id.espOrtopedia:
+                if (checked) {
+                    ortopedia.setChecked(false);
+                    listaCheckbox.remove(ortopedia.getText().toString());
+                } else {
+                    ortopedia.setChecked(true);
+                    listaCheckbox.add(ortopedia.getText().toString());
+                }
 
                 break;
 
-            case R.id.sintoma_coceira:
-                if (checked)
-                    { coceira.setChecked(false);
-                    listaCheckbox.remove(coceira.getText().toString());}
-                else { coceira.setChecked(true);
-                    listaCheckbox.add(coceira.getText().toString());}
+            case R.id.espCardiologia:
+                if (checked) {
+                    cardiologia.setChecked(false);
+                    listaCheckbox.remove(cardiologia.getText().toString());
+                } else {
+                    cardiologia.setChecked(true);
+                    listaCheckbox.add(cardiologia.getText().toString());
+                }
 
                 break;
 

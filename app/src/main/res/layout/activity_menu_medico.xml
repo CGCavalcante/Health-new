@@ -7,6 +7,15 @@
     android:background="@color/colorFundo"
     tools:context="com.maishealth.maishealth.usuario.gui.MenuMedicoActivity">
 
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="TelaAtualizarPerfilMedico"
+        app:srcCompat="@android:drawable/stat_notify_sync"
+        tools:layout_editor_absoluteX="260dp"
+        tools:layout_editor_absoluteY="30dp" />
+
     <TextView
         android:id="@+id/lblNomeMedico"
         android:layout_width="wrap_content"
@@ -19,7 +28,7 @@
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/fotoPerfil" />
 
     <Button
         android:id="@+id/bt_meucalend"
@@ -28,7 +37,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="28dp"
-        android:background="@color/colorText"
+        android:background="@color/colorButoes"
         android:onClick="TelaCalendario"
         android:text="@string/button_meu_calendario"
         android:textColor="@color/colorTextoBut"
@@ -44,7 +53,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@color/colorText"
+        android:background="@color/colorButoes"
         android:onClick="telaMinhasConsultas"
         android:text="@string/button_minhas_consultas"
         android:textColor="@color/colorTextoBut"
@@ -62,7 +71,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@color/colorText"
+        android:background="@color/colorButoes"
         android:onClick="onClickSair"
         android:text="@string/button_sair"
         android:textColor="@color/colorTextoBut"
@@ -76,13 +85,12 @@
 
 
     <ImageButton
-        android:id="@+id/imageView2"
+        android:id="@+id/fotoPerfil"
         android:layout_width="159dp"
         android:layout_height="158dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="30dp"
-        android:onClick="TelaAtualizarPerfilMedico"
         android:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
