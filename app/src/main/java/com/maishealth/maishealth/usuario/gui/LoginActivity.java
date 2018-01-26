@@ -95,6 +95,8 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+
     //public void fecharApp(View view){
       //  finish();
     //}

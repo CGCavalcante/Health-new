@@ -27,7 +27,7 @@
             android:name=".usuario.gui.LoginActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity android:name=".usuario.gui.SignUpActivity" />
         <activity android:name=".usuario.gui.MenuPaciente" />
         <activity android:name=".usuario.gui.MeuHistoricoActivity" />
@@ -65,9 +65,8 @@
         <activity
             android:name=".usuario.gui.ListaDeConsultasParaMedicoActivity"
             android:label="@string/label_lista_consultas_medico" />
-        <activity android:name=".HorarioMedico">
-
-        </activity>
+        <activity android:name=".HorarioMedico"></activity>
+        <activity android:name=".CalendarioDialog"></activity>
     </application>
 
 </manifest>

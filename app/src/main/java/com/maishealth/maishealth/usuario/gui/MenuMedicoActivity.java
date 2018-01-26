@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 
+import com.maishealth.maishealth.CalendarioDialog;
 import com.maishealth.maishealth.R;
 import com.maishealth.maishealth.usuario.dominio.Pessoa;
 import com.maishealth.maishealth.usuario.negocio.ServicosPessoa;
@@ -59,7 +60,11 @@ public class MenuMedicoActivity extends AppCompatActivity {
     public void TelaAtualizarPerfilMedico(View view){this.mudarTela(AtualizarPerfilActivity.class);
 
     }
-    public void TelaCalendario(View view){this.mudarTela(EscolherDia.class);}
+
+    public void TelaCalendario(View view) {
+        this.mudarTela(CalendarioDialog.class);
+    }
+
 
     public void telaMinhasConsultas(View view){this.mudarTela(ListaDeConsultasParaMedicoActivity.class);}
 
