@@ -5,4 +5,6 @@
 
 **Equipe:
 <br>Caroline Gomes
+<br>Eliana França
+<br>Lucas Sales
 <br>Wenderson Leonardo**
