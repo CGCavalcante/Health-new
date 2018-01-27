@@ -23,9 +23,9 @@
         />
 
     <ScrollView
-        android:layout_marginTop="149dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="149dp">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -55,7 +55,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorText"
-                android:onClick="telaMarcarConsulta"
                 android:text="@string/button_marcar_consulta"
                 android:textColor="@color/colorTextoBut"
                 android:textSize="16sp"

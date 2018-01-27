@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    tools:context="com.maishealth.maishealth.usuario.gui.SignUpActivity">
+    tools:context="com.maishealth.maishealth.usuario.gui.Cadastrar">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -39,10 +39,10 @@
                     android:id="@+id/view"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/divider_thickness"
-                    android:layout_marginTop="@dimen/divider_left_and_right"
                     android:layout_marginBottom="@dimen/divider_left_and_right"
-                    android:layout_marginStart="@dimen/margin_start_divide"
                     android:layout_marginEnd="@dimen/margin_end_divide"
+                    android:layout_marginStart="@dimen/margin_start_divide"
+                    android:layout_marginTop="@dimen/divider_left_and_right"
                     android:background="@color/divider"/>
 
                 <EditText
@@ -92,8 +92,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/margin_top_mini_label"
                     android:layout_marginBottom="@dimen/margin_bottom_mini_label"
+                    android:layout_marginTop="@dimen/margin_top_mini_label"
                     android:text="@string/label_sexo" />
 
                 <Spinner

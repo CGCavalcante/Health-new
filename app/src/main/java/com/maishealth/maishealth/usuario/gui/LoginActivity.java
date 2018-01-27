@@ -83,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void tela1Cadastro(View view) {
-        this.mudarTela(SignUpActivity.class);
+        this.mudarTela(Cadastrar.class);
     }
 
     public void acionarEmergencia(View view){

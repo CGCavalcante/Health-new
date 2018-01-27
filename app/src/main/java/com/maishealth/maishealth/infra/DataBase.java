@@ -41,6 +41,8 @@ public class DataBase extends SQLiteOpenHelper {
     public static final String ESTADO = "estado";
     public static final String ESPECIALIDADE = "especialidade";
     public static final String ID_EST_USUARIO_ME = "id_est_usuario";
+
+    /*
     //TABELA CONSULTA
     public static final String TABELA_CONSULTA = "consulta";
     public static final String ID_CONSULTA    = "id_consulta";
@@ -50,6 +52,8 @@ public class DataBase extends SQLiteOpenHelper {
     public static final String ID_EST_PACIENTE_CON = "id_est_paciente";
     public static final String ID_EST_MEDICO_CON = "id_est_medico";
     public static final String CONSULTA_STATUS = "status";
+    */
+
     //TABELA DOENCA CRONICA
     public static final String TABELA_DOENCACRONICA = "doenca";
     public static final String ID_DOENCA = "id_doenca";
@@ -83,13 +87,26 @@ public class DataBase extends SQLiteOpenHelper {
     public static final String TABELA_CONSULTA_SINTOMA = "consulta_sintoma";
     public static final String ID_EST_SINTOMA_CON_SIN = "id_consulta";
     public static final String NOME_EST_SINTOMA_CON_SIN = "sintoma_nome";
-    //TABELA HORARIO MEDICO
+    //TABELA HORARIO-MEDICO
     public static final String TABELA_HORARIO_MEDICO = "horario_medico";
     public static final String ID_HOR_MEDICO = "id_hor_medico";
-    public static final String DATA = "data";
+    public static final String DIA_DA_SEMANA = "dia_da_semana";
     public static final String VAGAS = "vagas";
     public static final String HORARIO = "horario";
     public static final String ID_EST_MEDICO = "id_est_medico";
+
+
+    public static final String TABELA_DATA_HORARIO = "data_horario";
+    public static final String ID_DATA_HORARIO = "id_data_horario";
+    public static final String ID_EST_HORARIO_MED = "id_horario_medico";
+    public static final String DATA = "data";
+    public static final String CONTADOR_REGRESIVO = "contador";
+
+    public static final String TABELA_CONSULTA = "consulta";
+    public static final String ID_CONSULTA = "id_consulta";
+    public static final String ID_EST_PACIENTE_CON = "id_paciente";
+    public static final String ID_EST_DATA_HORARIO = "id_data_horario";
+    public static final String STATUS_CONSULTA = "status_consulta";
 
 
     private static final int DATABASE_VERSION = 8;
@@ -101,14 +118,25 @@ public class DataBase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        db.execSQL("CREATE TABLE " + TABELA_DATA_HORARIO + " (" +
+                ID_DATA_HORARIO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                ID_EST_HORARIO_MED + " INTEGER, " +
+                DATA + " TEXT NOT NULL, " +
+                CONTADOR_REGRESIVO + " INTEGER); ");
+
+
+        db.execSQL("CREATE TABLE " + TABELA_CONSULTA + "(" +
+                ID_CONSULTA + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                ID_EST_PACIENTE_CON + " INTEGER, " +
+                ID_EST_DATA_HORARIO + " INTEGER, " +
+                STATUS_CONSULTA + " TEXT); ");
 
         db.execSQL("CREATE TABLE " + TABELA_HORARIO_MEDICO + " (" +
                 ID_HOR_MEDICO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                DATA + " TEXT NOT NULL, " +
+                DIA_DA_SEMANA + " TEXT NOT NULL, " +
                 VAGAS + " INTEGER," +
                 HORARIO + " TEXT NOT NULL," +
                 ID_EST_MEDICO + " INTEGER);");
-
 
         db.execSQL("CREATE TABLE " + TABELA_USUARIO + " (" +
                 ID_USUARIO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -134,6 +162,7 @@ public class DataBase extends SQLiteOpenHelper {
                 ESTADO + " TEXT NOT NULL, " +
 				ESPECIALIDADE + " TEXT NOT NULL, " +
                 ID_EST_USUARIO_ME + " INTEGER);");
+        /*
 
         db.execSQL("CREATE TABLE " + TABELA_CONSULTA + " (" +
                 ID_CONSULTA  + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -144,6 +173,7 @@ public class DataBase extends SQLiteOpenHelper {
                 ID_EST_MEDICO_CON + " INTEGER, " +
                 CONSULTA_STATUS + " TEXT NOT NULL);");
 
+
         db.execSQL("CREATE TABLE " + TABELA_DOENCACRONICA + " (" +
                 ID_DOENCA + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 DOENCA_NOME + " TEXT NOT NULL, " +
@@ -151,22 +181,22 @@ public class DataBase extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE " + TABELA_MEDICAMENTO + " (" +
                 ID_MEDICAMENTO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                MEDICAMENTO_NOME + " TEXT NOT NULL);");
+                MEDICAMENTO_NOME + " TEXT NOT NULL);"); */
 
         db.execSQL("CREATE TABLE " + TABELA_POSTO + " (" +
                 ID_POSTO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 POSTO_NOME + " TEXT NOT NULL, " +
                 POSTO_LOCAL + " TEXT NOT NULL);");
 
-        db.execSQL("CREATE TABLE " + TABELA_PACIENTE_DOENCA + " (" +
+        /* db.execSQL("CREATE TABLE " + TABELA_PACIENTE_DOENCA + " (" +
                 ID_EST_PACIENTE_PA_DO + " INTEGER, " +
-                ID_EST_DOENCA_PA_DO + " INTEGER);");
+                ID_EST_DOENCA_PA_DO + " INTEGER);"); */
 
         db.execSQL("CREATE TABLE " + TABELA_MEDICO_POSTO + " (" +
                 ID_EST_MEDICO_ME_POS + " INTEGER, " +
                 ID_EST_POSTO_ME_POS + " INTEGER);");
 
-        db.execSQL("CREATE TABLE " + TABELA_CONSULTA_MEDICAMENTO + " (" +
+        /*db.execSQL("CREATE TABLE " + TABELA_CONSULTA_MEDICAMENTO + " (" +
                 ID_EST_CONSULTA_CON_MEM + " INTEGER, " +
                 ID_EST_MEDICAMENTO_CON_MEM + " INTEGER);");
 
@@ -175,7 +205,7 @@ public class DataBase extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE " + TABELA_CONSULTA_SINTOMA + "(" +
                 ID_EST_SINTOMA_CON_SIN + " INTEGER, " +
-                NOME_EST_SINTOMA_CON_SIN + " TEXT NOT NULL);");
+                NOME_EST_SINTOMA_CON_SIN + " TEXT NOT NULL);"); */
 
 
 
@@ -184,7 +214,7 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL(INSERIR_PESSOA);
         db.execSQL(INSERIR_PACIENTE);
         db.execSQL(INSERIR_MEDICO);
-        db.execSQL(INSERIR_MEDICAMENTO);
+        //db.execSQL(INSERIR_MEDICAMENTO);
         //db.execSQL(INSERIR_HORARIO_MEDICO);
 
     }
@@ -207,32 +237,35 @@ public class DataBase extends SQLiteOpenHelper {
         String query5 = "DROP TABLE IF EXISTS " + TABELA_CONSULTA;
         db.execSQL(query5);
 
-        String query6 = "DROP TABLE IF EXISTS " + TABELA_DOENCACRONICA;
+        /*String query6 = "DROP TABLE IF EXISTS " + TABELA_DOENCACRONICA;
         db.execSQL(query6);
 
         String query7 = "DROP TABLE IF EXISTS " + TABELA_MEDICAMENTO;
-        db.execSQL(query7);
+        db.execSQL(query7);*/
 
         String query8 = "DROP TABLE IF EXISTS " + TABELA_POSTO;
         db.execSQL(query8);
 
-        String query9 = "DROP TABLE IF EXISTS " + TABELA_PACIENTE_DOENCA;
-        db.execSQL(query9);
+        /*String query9 = "DROP TABLE IF EXISTS " + TABELA_PACIENTE_DOENCA;
+        db.execSQL(query9);*/
 
         String query10 = "DROP TABLE IF EXISTS " + TABELA_MEDICO_POSTO;
         db.execSQL(query10);
 
-        String query11 = "DROP TABLE IF EXISTS " + TABELA_CONSULTA_MEDICAMENTO;
+        /*String query11 = "DROP TABLE IF EXISTS " + TABELA_CONSULTA_MEDICAMENTO;
         db.execSQL(query11);
 
         String query12 = "DROP TABLE IF EXISTS " + TABELA_SINTOMA;
         db.execSQL(query12);
 
         String query13 = "DROP TABLE IF EXISTS " + TABELA_CONSULTA_SINTOMA;
-        db.execSQL(query13);
+        db.execSQL(query13); */
 
         String query14 = "DROP TABLE IF EXISTS " + TABELA_HORARIO_MEDICO;
         db.execSQL(query14);
+
+        String query15 = "DROP TABLE IF EXISTS " + TABELA_DATA_HORARIO;
+        db.execSQL(query15);
 
         this.onCreate(db);
     }

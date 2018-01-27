@@ -20,19 +20,19 @@ import com.maishealth.maishealth.usuario.dominio.EnumTipoSangue;
 import com.maishealth.maishealth.usuario.negocio.Servicos;
 import com.maishealth.maishealth.usuario.negocio.ValidaCadastro;
 
-public class SignUpActivity extends AppCompatActivity {
-    private EditText edtEmail, edtSenha, edtNome, edtCpf, edtNasc, edtCrm, edtEspec;
-    private TextView edtRegiao;
-    private Spinner spinnerSexo, spinnerTipoSangue, spinnerRegiao;
+public class Cadastrar extends AppCompatActivity {
     private final String[] listaSexo = {"Feminino", "Masculino"};
     private final String[] listaEstados = EnumEstados.enumEstadosLista();
     private final String[] listaTipoSangue = EnumTipoSangue.enumTipoSangueLista();
+    private EditText edtEmail, edtSenha, edtNome, edtCpf, edtNasc, edtCrm, edtEspec;
+    private TextView edtRegiao;
+    private Spinner spinnerSexo, spinnerTipoSangue, spinnerRegiao;
     private Switch swUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_cadastrar);
 
         edtEmail = findViewById(R.id.edtEmail3);
         edtSenha = findViewById(R.id.edtSenha3);

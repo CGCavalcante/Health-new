@@ -5,10 +5,8 @@ import android.content.SharedPreferences;
 
 import com.maishealth.maishealth.usuario.dominio.Consulta;
 import com.maishealth.maishealth.usuario.dominio.EnumStatusConsulta;
-import com.maishealth.maishealth.usuario.dominio.Medicamento;
 import com.maishealth.maishealth.usuario.dominio.Medico;
 import com.maishealth.maishealth.usuario.persistencia.ConsultaDAO;
-import com.maishealth.maishealth.usuario.persistencia.MedicamentoDAO;
 import com.maishealth.maishealth.usuario.persistencia.MedicoDAO;
 
 import static com.maishealth.maishealth.infra.ConstanteSharedPreferences.ID_MEDICO_PREFERENCES;
@@ -41,11 +39,11 @@ public class ServicosMedico {
         return cadastrarMedico(medico);
     }
 
-
+/*
     private long criarConsulta (Consulta consulta){return consultaDAO.inserirConsulta(consulta); }
     public long criarConsulta (Medico medico, String data, String turno){
         Consulta consulta = new Consulta();
-        consulta.setIdMedico(medico.getId());
+        consulta.setId_data_horario(medico.getId());
         consulta.setData(data);
         consulta.setStatus(EnumStatusConsulta.DISPONIVEL.toString());
         consulta.setTurno(turno);
@@ -60,5 +58,5 @@ public class ServicosMedico {
         contador = 1;
         while (contador <= qtdVagas){ criarConsulta(medico, data, turno); contador++; }
 
-    }
+    } */
 }

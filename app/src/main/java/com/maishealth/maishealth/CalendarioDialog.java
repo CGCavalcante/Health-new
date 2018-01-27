@@ -14,8 +14,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.maishealth.maishealth.usuario.gui.MenuMedicoActivity;
+import com.maishealth.maishealth.usuario.negocio.ServicosMedico;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class CalendarioDialog extends AppCompatActivity {
     private final String[] listaHorarioMedico = {"Manhã", "Tarde"};
@@ -59,6 +63,7 @@ public class CalendarioDialog extends AppCompatActivity {
     }
 
     private void pegarData() {
+
         Calendar c = Calendar.getInstance();
         int dia = c.get(Calendar.DAY_OF_MONTH);
         int mes = c.get(Calendar.MONTH);
@@ -72,6 +77,7 @@ public class CalendarioDialog extends AppCompatActivity {
         }, ano, mes, dia);
 
         dp.show();
+
     }
 
     private void mudarTela(Class tela) {
@@ -88,4 +94,5 @@ public class CalendarioDialog extends AppCompatActivity {
     public void onBackPressed() {
         this.mudarTela(MenuMedicoActivity.class);
     }
+
 }
