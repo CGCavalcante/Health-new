@@ -10,10 +10,6 @@ import com.maishealth.maishealth.usuario.dominio.Consulta;
 import com.maishealth.maishealth.usuario.dominio.EnumStatusConsulta;
 
 public class ConsultaDAO {
-    public static final String LIKE = " LIKE ?";
-    public static final String SELECT_FROM = "SELECT * FROM ";
-    public static final String AND = " AND ";
-    public static final String WHERE = " WHERE ";
     private SQLiteDatabase liteDatabase;
     private DataBase dataBaseHelper;
 
@@ -26,10 +22,6 @@ public class ConsultaDAO {
         ContentValues values = new ContentValues();
 
         String tabela = DataBase.TABELA_CONSULTA;
-
-        String colunaIdConsulta = DataBase.ID_CONSULTA;
-        long idConsulta = consulta.getId();
-        values.put(colunaIdConsulta, idConsulta);
 
         String colunaIdPaciente = DataBase.ID_EST_PACIENTE_CON;
         long idPaciente = consulta.getIdPaciente();
@@ -124,7 +116,7 @@ public class ConsultaDAO {
         return consulta;
     }
 
-    public Consulta getConsulta(long idPaciente, long idDataHorario, long idConsulta) {
+    public Consulta getConsultaDisponivel(long idPaciente, long idDataHorario, long idConsulta) {
         String query = "SELECT * FROM " + DataBase.TABELA_CONSULTA +
                 " WHERE " + DataBase.ID_EST_PACIENTE_CON + " LIKE ?" +
                 " AND " + DataBase.ID_EST_DATA_HORARIO + " LIKE ?" +
@@ -135,7 +127,7 @@ public class ConsultaDAO {
         String idConsultaString   = Long.toString(idConsulta);
         String statusConsulta = EnumStatusConsulta.DISPONIVEL.toString();
 
-        String[] argumentos = {idDataHorarioString, idPacienteString, idConsultaString, statusConsulta};
+        String[] argumentos = {idPacienteString, idDataHorarioString, idConsultaString, statusConsulta};
 
         return this.getConsulta(query, argumentos);
     }
