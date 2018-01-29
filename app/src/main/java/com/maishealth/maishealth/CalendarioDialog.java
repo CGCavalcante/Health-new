@@ -86,7 +86,7 @@ public class CalendarioDialog extends AppCompatActivity {
         finish();
     }
 
-    public void voltarMenuMed(View view) {
+    public void voltarMenuMed1(View view) {
         this.mudarTela(MenuMedicoActivity.class);
     }
 
