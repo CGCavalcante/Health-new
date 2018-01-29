@@ -5,75 +5,124 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorFundo"
-    tools:context="com.maishealth.maishealth.HorarioMedico">
+    tools:context="com.maishealth.maishealth.HorarioMedicoAct">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="30dp"
         android:text="Dias da Semana"
         android:textColor="@color/colorText"
-        tools:layout_editor_absoluteX="102dp"
-        tools:layout_editor_absoluteY="61dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.063" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/seg"
+        android:layout_width="wrap_content"
+        android:layout_height="51dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:background="@color/colorText"
         android:text="Segunda"
         android:textColor="@color/colorTextoBut"
-        tools:layout_editor_absoluteX="123dp"
-        tools:layout_editor_absoluteY="120dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.054" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="fill_parent"
+        android:id="@+id/ter"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
         android:background="@color/colorText"
         android:text="Terca"
         android:textColor="@color/colorTextoBut"
-        tools:layout_editor_absoluteX="123dp"
-        tools:layout_editor_absoluteY="226dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seg"
+        app:layout_constraintVertical_bias="0.027" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="fill_parent"
+        android:id="@+id/qua"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:background="@color/colorText"
         android:text="Quarta"
         android:textColor="@color/colorTextoBut"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="274dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ter"
+        app:layout_constraintVertical_bias="0.071" />
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="fill_parent"
+        android:id="@+id/qui"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:background="@color/colorText"
         android:text="Quinta"
         android:textColor="@color/colorTextoBut"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="322dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qua"
+        app:layout_constraintVertical_bias="0.115" />
 
     <Button
-        android:id="@+id/button6"
-        android:layout_width="fill_parent"
+        android:id="@+id/sex"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:background="@color/colorText"
         android:text="Sexta"
         android:textColor="@color/colorTextoBut"
-        tools:layout_editor_absoluteX="123dp"
-        tools:layout_editor_absoluteY="381dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qui"
+        app:layout_constraintVertical_bias="0.128" />
 
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:background="@color/colorText"
         android:text="Voltar"
         android:textColor="@color/colorTextoBut"
-        tools:layout_editor_absoluteX="68dp"
-        tools:layout_editor_absoluteY="422dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sex" />
 </android.support.constraint.ConstraintLayout>

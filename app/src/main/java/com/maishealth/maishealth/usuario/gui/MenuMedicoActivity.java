@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 
-import com.maishealth.maishealth.CalendarioDialog;
+import com.maishealth.maishealth.HorarioMedicoAct;
 import com.maishealth.maishealth.R;
 import com.maishealth.maishealth.usuario.dominio.Pessoa;
 import com.maishealth.maishealth.usuario.negocio.ServicosPessoa;
@@ -61,8 +61,8 @@ public class MenuMedicoActivity extends AppCompatActivity {
 
     }
 
-    public void TelaCalendario(View view) {
-        this.mudarTela(CalendarioDialog.class);
+    public void TelaHorario(View view) {
+        this.mudarTela(HorarioMedicoAct.class);
     }
 
 
