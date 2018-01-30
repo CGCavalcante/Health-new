@@ -1,5 +1,6 @@
 package com.maishealth.maishealth.usuario.persistencia;
 
+
 public class ConstantePopularBanco {
     public static final String INSERIR_USUARIO = "INSERT INTO `usuario` (`email`,`senha`) VALUES " +
             "('a@gmail.com','111111')," +
@@ -50,10 +51,22 @@ public class ConstantePopularBanco {
             "('Dorflex')," +
             "('Diazepan')," +
             "('Lasartana');";
-    /*
-    public static final String INSERIR_HORARIO_MEDICO = "INSERT INTO 'horario_medico' ('data','vagas','horario') VALUES" +
-            "('30/01/2018','20','Manhã')," +
-            "('31/01/2018','15','Tarde');";
-            */
+
+    public static final String INSERIR_HORARIO_MEDICO = "INSERT INTO `horario_medico` (`dia_da_semana`,`vagas`,`turno`,`id_est_medico`) VALUES " +
+            "('Segunda',20,'Tarde',1)," +
+            "('Terça',15,'Manhã',2)," +
+            "('Quarta',2,'Tarde',3)," +
+            "('Quinta',25,'Tarde',4)," +
+            "('Sexta',27,'Manhã',5);";
+
+    public static final String INSERIR_POSTO = "INSERT INTO 'posto' ('nome','local') VALUES" +
+            "('Posto Maria Lucinda','Rua A')," +
+            "('Posto B','Rua B')," +
+            "('Posto C','Rua C')," +
+            "('Posto D','Rua D')," +
+            "('Posto E','Rua E');";
+
+
+
 
 }

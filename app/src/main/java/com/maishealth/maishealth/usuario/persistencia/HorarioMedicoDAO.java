@@ -129,15 +129,17 @@ public class HorarioMedicoDAO {
         return horarioMedico;
     }
 
-    public HorarioMedico getHorarioMedico(long idMedico, String diaSemana) {
+    public HorarioMedico getHorarioMedico(long idMedico, String diaSemana, String turno, long vagas) {
         String query = " SELECT * FROM " + DataBase.TABELA_HORARIO_MEDICO +
                 " WHERE " + DataBase.ID_EST_MEDICO + " LIKE ?" +
-                " AND " + DataBase.DIA_DA_SEMANA + " LIKE ?";
+                " AND " + DataBase.DIA_DA_SEMANA + " LIKE ?" +
+                " AND " + DataBase.TURNO + " LIKE ?" +
+                " AND " + DataBase.VAGAS + " LIKE ?";
 
         String idMedicoString = Long.toString(idMedico);
-        String status = EnumStatusConsulta.DISPONIVEL.toString();
+        String vagasString = Long.toString(vagas);
 
-        String[] argumentos = {idMedicoString, status, diaSemana};
+        String[] argumentos = {idMedicoString, diaSemana, turno, vagasString};
         return this.getHorarioMedico(query, argumentos);
 
     }

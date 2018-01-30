@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText edtEmailLogin, edtSenhaLogin;
     private SharedPreferences sharedPreferences;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -7,8 +7,9 @@ import android.database.sqlite.SQLiteOpenHelper; // Cria banco de dados
 import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_MEDICO;
 import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_PACIENTE;
 import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_PESSOA;
+import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_POSTO;
 import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_USUARIO;
-//import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_HORARIO_MEDICO;
+import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_HORARIO_MEDICO;
 
 /**
  * Classe responsável por criar tabelas e o banco de dados
@@ -69,7 +70,7 @@ public class DataBase extends SQLiteOpenHelper {
     public static final String ID_EST_DATA_HORARIO = "id_data_horario";
     public static final String STATUS_CONSULTA = "status_consulta";
 
-    private static final int DATABASE_VERSION = 8;
+    private static final int DATABASE_VERSION = 9;
     private static final String DATABASE_NAME = "dbmaishealth";
 
     public DataBase(Context context) {
@@ -135,6 +136,8 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL(INSERIR_PESSOA);
         db.execSQL(INSERIR_PACIENTE);
         db.execSQL(INSERIR_MEDICO);
+        db.execSQL(INSERIR_HORARIO_MEDICO);
+        db.execSQL(INSERIR_POSTO);
     }
 
     //Atualização da tabela
