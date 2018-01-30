@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorFundo"
+    android:background="@null"
     tools:context="com.maishealth.maishealth.usuario.gui.ConsultaAtualMedActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/materialup.appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorButoes"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <android.support.v7.widget.Toolbar
@@ -21,8 +22,8 @@
             android:minHeight="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|enterAlways|snap"
             app:theme="@style/ThemeOverlay.AppCompat.Light"
-            app:titleTextColor="@color/colorFundo"
-            app:title="@string/label_consulta_atual" />
+            app:title="@string/label_consulta_atual"
+            app:titleTextColor="@color/colorFundo" />
 
 
     </android.support.design.widget.AppBarLayout>
@@ -126,8 +127,8 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="36dp"
         android:background="@color/colorButoes"
-        android:text="@string/voltar_da_cons_atual"
         android:onClick="voltarListaPacientes"
+        android:text="@string/voltar_da_cons_atual"
         android:textColor="@color/colorTextoBut"
         app:layout_constraintStart_toStartOf="@+id/TextViewTratConsEsc"
         app:layout_constraintTop_toBottomOf="@+id/TextViewTratConsEsc" />
@@ -139,8 +140,8 @@
         android:layout_marginStart="168dp"
         android:layout_marginTop="36dp"
         android:background="@color/colorButoes"
-        android:text="@string/button_atualizar_cons"
         android:onClick="atualizarConsultaPaciente"
+        android:text="@string/button_atualizar_cons"
         android:textColor="@color/colorTextoBut"
         app:layout_constraintStart_toStartOf="@+id/TextViewTratConsEsc"
         app:layout_constraintTop_toBottomOf="@+id/TextViewTratConsEsc" />

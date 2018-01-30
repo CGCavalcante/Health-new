@@ -4,8 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorFundo"
+    android:background="@null"
     tools:context="com.maishealth.maishealth.HorarioMedicoAct">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/materialup.appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorButoes"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/materialup.toolbar"
+            style="@style/ToolBarWithNavigationBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:theme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="@string/label_consultas_pendentes"
+            app:titleTextColor="@color/colorFundo" />
+
+
+    </android.support.design.widget.AppBarLayout>
 
     <TextView
         android:id="@+id/textView"
@@ -20,115 +41,97 @@
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.063" />
+        app:layout_constraintVertical_bias="0.121" />
 
     <Button
         android:id="@+id/seg"
         android:layout_width="wrap_content"
         android:layout_height="51dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:background="@color/colorText"
         android:onClick="horSegunda"
         android:text="Segunda"
         android:textColor="@color/colorTextoBut"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.054" />
+        tools:layout_editor_absoluteX="49dp"
+        tools:layout_editor_absoluteY="353dp" />
 
     <Button
         android:id="@+id/ter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
         android:background="@color/colorText"
         android:onClick="horTerca"
         android:text="Terca"
         android:textColor="@color/colorTextoBut"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seg"
-        app:layout_constraintVertical_bias="0.027" />
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="354dp" />
 
     <Button
         android:id="@+id/qua"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:background="@color/colorText"
         android:onClick="horQuarta"
         android:text="Quarta"
         android:textColor="@color/colorTextoBut"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ter"
-        app:layout_constraintVertical_bias="0.071" />
+        tools:layout_editor_absoluteX="268dp"
+        tools:layout_editor_absoluteY="353dp" />
 
     <Button
         android:id="@+id/qui"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:background="@color/colorText"
         android:onClick="horQuinta"
         android:text="Quinta"
         android:textColor="@color/colorTextoBut"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qua"
-        app:layout_constraintVertical_bias="0.115" />
+        tools:layout_editor_absoluteX="102dp"
+        tools:layout_editor_absoluteY="433dp" />
 
     <Button
         android:id="@+id/sex"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="50dp"
         android:background="@color/colorText"
         android:onClick="horSexta"
         android:text="Sexta"
         android:textColor="@color/colorTextoBut"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qui"
-        app:layout_constraintVertical_bias="0.128" />
+        tools:layout_editor_absoluteX="220dp"
+        tools:layout_editor_absoluteY="433dp" />
 
-
-    <Button
+    <ImageView
         android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="67dp"
+        android:layout_height="61dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@color/colorText"
+        android:contentDescription="Sair"
         android:onClick="voltarMenuMed"
-        android:text="Voltar"
-        android:textColor="@color/colorTextoBut"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sex" />
+        app:layout_constraintTop_toBottomOf="@+id/sex"
+        app:layout_constraintVertical_bias="0.66"
+        app:srcCompat="@android:drawable/ic_delete" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="SAIR"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_sair_pac2"
+        app:layout_constraintVertical_bias="0.142" />
+
 </android.support.constraint.ConstraintLayout>
