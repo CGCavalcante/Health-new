@@ -94,6 +94,7 @@
                     android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:background="@color/colorText"
+                    android:onClick="teste"
                     android:text="Esqueceu senha"
                     android:textColor="@color/colorTextoBut"
                     android:textStyle="bold" />

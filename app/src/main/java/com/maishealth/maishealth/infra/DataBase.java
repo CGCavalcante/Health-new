@@ -5,11 +5,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper; // Cria banco de dados
 
 import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_MEDICO;
+import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_MEDICO_POSTO;
 import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_PACIENTE;
 import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_PESSOA;
 import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_POSTO;
 import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_USUARIO;
-import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_HORARIO_MEDICO;
+//import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_HORARIO_MEDICO;
 
 /**
  * Classe responsável por criar tabelas e o banco de dados
@@ -46,6 +47,7 @@ public class DataBase extends SQLiteOpenHelper {
     public static final String ID_POSTO = "id_posto";
     public static final String POSTO_NOME = "nome";
     public static final String POSTO_LOCAL = "local";
+    public static final String ID_EST_USUARIO = "id_est_usuario";
     //TABELA MEDICO-POSTO
     public static final String TABELA_MEDICO_POSTO = "medico_posto";
     public static final String ID_EST_MEDICO_ME_POS = "id_medico";
@@ -70,7 +72,7 @@ public class DataBase extends SQLiteOpenHelper {
     public static final String ID_EST_DATA_HORARIO = "id_data_horario";
     public static final String STATUS_CONSULTA = "status_consulta";
 
-    private static final int DATABASE_VERSION = 9;
+    private static final int DATABASE_VERSION = 8;
     private static final String DATABASE_NAME = "dbmaishealth";
 
     public DataBase(Context context) {
@@ -126,7 +128,8 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE " + TABELA_POSTO + " (" +
                 ID_POSTO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 POSTO_NOME + " TEXT NOT NULL, " +
-                POSTO_LOCAL + " TEXT NOT NULL);");
+                POSTO_LOCAL + " TEXT NOT NULL, " +
+                ID_EST_USUARIO + " INTEGER);");
 
         db.execSQL("CREATE TABLE " + TABELA_MEDICO_POSTO + " (" +
                 ID_EST_MEDICO_ME_POS + " INTEGER, " +
@@ -136,8 +139,8 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL(INSERIR_PESSOA);
         db.execSQL(INSERIR_PACIENTE);
         db.execSQL(INSERIR_MEDICO);
-        db.execSQL(INSERIR_HORARIO_MEDICO);
         db.execSQL(INSERIR_POSTO);
+        db.execSQL(INSERIR_MEDICO_POSTO);
     }
 
     //Atualização da tabela
@@ -158,11 +161,11 @@ public class DataBase extends SQLiteOpenHelper {
         String query5 = "DROP TABLE IF EXISTS " + TABELA_CONSULTA;
         db.execSQL(query5);
 
-        String query8 = "DROP TABLE IF EXISTS " + TABELA_POSTO;
-        db.execSQL(query8);
+        String query6 = "DROP TABLE IF EXISTS " + TABELA_POSTO;
+        db.execSQL(query6);
 
-        String query10 = "DROP TABLE IF EXISTS " + TABELA_MEDICO_POSTO;
-        db.execSQL(query10);
+        String query7 = "DROP TABLE IF EXISTS " + TABELA_MEDICO_POSTO;
+        db.execSQL(query7);
 
         String query14 = "DROP TABLE IF EXISTS " + TABELA_HORARIO_MEDICO;
         db.execSQL(query14);

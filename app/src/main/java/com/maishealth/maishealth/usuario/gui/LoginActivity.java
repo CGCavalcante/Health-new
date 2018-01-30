@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
+import com.maishealth.maishealth.ListagemActivity;
 import com.maishealth.maishealth.R;
 import com.maishealth.maishealth.infra.GuiUtil;
 import com.maishealth.maishealth.usuario.negocio.Servicos;
@@ -97,8 +98,7 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
-
-    //public void fecharApp(View view){
-      //  finish();
-    //}
+    public void teste(View view) {
+        this.mudarTela(ListagemActivity.class);
+    }
 }
