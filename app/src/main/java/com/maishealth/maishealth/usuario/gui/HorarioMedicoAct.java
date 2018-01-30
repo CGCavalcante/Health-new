@@ -1,11 +1,13 @@
-package com.maishealth.maishealth;
+package com.maishealth.maishealth.usuario.gui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.maishealth.maishealth.R;
 import com.maishealth.maishealth.usuario.gui.MenuMedicoActivity;
+import com.maishealth.maishealth.usuario.gui.SetarHorario;
 
 public class HorarioMedicoAct extends AppCompatActivity {
 

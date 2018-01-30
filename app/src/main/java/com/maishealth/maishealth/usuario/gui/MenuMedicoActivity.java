@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.TextView;
 
 
-import com.maishealth.maishealth.HorarioMedicoAct;
 import com.maishealth.maishealth.R;
 import com.maishealth.maishealth.usuario.dominio.Pessoa;
 import com.maishealth.maishealth.usuario.negocio.ServicosPessoa;

@@ -1,7 +1,6 @@
-package com.maishealth.maishealth;
+package com.maishealth.maishealth.usuario.gui;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,14 +9,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.maishealth.maishealth.usuario.dominio.HorarioMedico;
-import com.maishealth.maishealth.usuario.gui.MenuMedicoActivity;
+import com.maishealth.maishealth.R;
 import com.maishealth.maishealth.usuario.negocio.ServicosMedico;
 import com.maishealth.maishealth.usuario.negocio.ValidaCadastro;
-
-import java.util.ArrayList;
-
-import static com.maishealth.maishealth.infra.ConstanteSharedPreferences.ID_MEDICO_PREFERENCES;
 
 public class SetarHorario extends AppCompatActivity {
     private TextView diaSemana;

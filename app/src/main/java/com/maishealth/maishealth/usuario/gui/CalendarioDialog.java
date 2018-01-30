@@ -1,4 +1,4 @@
-package com.maishealth.maishealth;
+package com.maishealth.maishealth.usuario.gui;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -13,13 +13,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.maishealth.maishealth.usuario.gui.MenuMedicoActivity;
-import com.maishealth.maishealth.usuario.negocio.ServicosMedico;
+import com.maishealth.maishealth.R;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 public class CalendarioDialog extends AppCompatActivity {
     private final String[] listaHorarioMedico = {"Manhã", "Tarde"};
