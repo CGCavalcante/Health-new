@@ -46,6 +46,10 @@ public class MenuPaciente extends AppCompatActivity {
         this.mudarTela(MeuHistoricoActivity.class);
     }
 
+    public void telaMarcarConsulta(View view) {
+        this.mudarTela(CalendarioDialog.class);
+    }
+
     public void telaConsultasPendentes(View view){
         this.mudarTela(ConsultasPendentesActivity.class);
     }
