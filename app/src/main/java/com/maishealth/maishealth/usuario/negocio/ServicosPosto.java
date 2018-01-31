@@ -50,6 +50,7 @@ public class ServicosPosto {
 
         return especMedico;
 
+
     }*/
 
     public ArrayList<String> returnNomeMedicos(long id) {
