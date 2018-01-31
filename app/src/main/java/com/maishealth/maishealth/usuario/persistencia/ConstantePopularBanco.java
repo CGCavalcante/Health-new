@@ -53,11 +53,11 @@ public class ConstantePopularBanco {
             "('Diazepan')," +
             "('Lasartana');";
 
-    public static final String INSERIR_POSTO = "INSERT INTO 'posto' ('nome','local')" +
-            "('DDDS','DDDDS',11)," +
-            "('DDDF','DDDDF',12);";
+    public static final String INSERIR_POSTO = "INSERT INTO 'posto' ('nome','local') VALUES"+
+            "('DDDS','DDDDS')," +
+            "('DDDF','DDDDF');";
 
-    public static final String INSERIR_MEDICO_POSTO = "INSERT TO 'medico_posto' ('id_medico',id_postp')" +
+    public static final String INSERIR_MEDICO_POSTO = "INSERT INTO 'medico_posto' ('id_medico','id_posto') VALUES" +
             "(1,1)," +
             "(2,1)," +
             "(3,1)," +
