@@ -34,6 +34,8 @@
                     android:layout_marginBottom="@dimen/margin_bottom_mini_label"
                     android:text="@string/switch_paciente"
                     android:textColorLink="#fa0202"
+                    android:textOff="Pac"
+                    android:textOn="Med"
                     tools:text="Médico" />
 
                 <View
@@ -158,33 +160,24 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <Button
+                    <ImageView
                         android:id="@+id/btnCancelar3"
                         style="?android:attr/buttonBarButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
+                        android:layout_width="67dp"
+                        android:layout_height="67dp"
                         android:layout_margin="8dp"
                         android:layout_weight="1"
-                        android:background="@color/colorText"
                         android:onClick="voltarTelaLogin"
-                        android:text="@string/button_cancelar"
-                        android:textColor="@color/colorTextoBut"
-                        android:textStyle="bold" />
+                        app:srcCompat="@android:drawable/ic_delete" />
 
-                    <Button
+                    <ImageView
                         android:id="@+id/btnCadastrar3"
                         style="?android:attr/buttonBarButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_margin="8dp"
+                        android:layout_width="67dp"
+                        android:layout_height="67dp"
                         android:layout_weight="1"
-                        android:background="@color/colorText"
                         android:onClick="onClickCadastrar"
-                        android:text="@string/button_cadastrar"
-                        android:textColor="@color/colorTextoBut"
-                        android:textStyle="bold" />
+                        app:srcCompat="@mipmap/ic_launcher_ok" />
 
                 </LinearLayout>
 

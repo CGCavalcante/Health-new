@@ -7,7 +7,7 @@
     android:id="@+id/activity_lista_de_consultas_para_medico"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorFundo"
+    android:background="@null"
     android:orientation="vertical"
     tools:context="com.maishealth.maishealth.usuario.gui.EscolherDiaDaConsultaActivity">
 

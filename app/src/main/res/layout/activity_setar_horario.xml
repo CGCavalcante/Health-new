@@ -6,6 +6,27 @@
     android:layout_height="match_parent"
     tools:context="com.maishealth.maishealth.usuario.gui.SetarHorario">
 
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/materialup.appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorButoes"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/materialup.toolbar"
+            style="@style/ToolBarWithNavigationBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:theme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="Gerar Consultas"
+            app:titleTextColor="@color/colorFundo" />
+
+
+    </android.support.design.widget.AppBarLayout>
+
     <TextView
         android:id="@+id/textTurno"
         android:layout_width="wrap_content"
@@ -15,13 +36,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Turnos:"
-        android:textSize="30dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.189"
+        app:layout_constraintHorizontal_bias="0.139"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.052" />
+        app:layout_constraintTop_toBottomOf="@+id/textDia"
+        app:layout_constraintVertical_bias="0.026" />
 
     <TextView
         android:id="@+id/textDia"
@@ -35,10 +56,10 @@
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.287"
         app:layout_constraintStart_toEndOf="@+id/textTurno"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.052" />
+        app:layout_constraintVertical_bias="0.123" />
 
     <CheckBox
         android:id="@+id/chkM"
@@ -66,7 +87,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Quantidade de Vagas Manhã"
+        android:hint="Quantidade de Vagas"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
