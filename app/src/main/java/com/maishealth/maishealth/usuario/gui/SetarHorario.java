@@ -41,65 +41,81 @@ public class SetarHorario extends AppCompatActivity {
         vagasT = findViewById(R.id.vagasT);
         vagasN = findViewById(R.id.vagasN);
 
+        btnConfirmar = findViewById(R.id.btnConfirmar);
 
-    }
+        btnConfirmar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-    public void confirmarHorario(View view) throws Exception {
-        ValidaCadastro validaCadastro = new ValidaCadastro();
+                ValidaCadastro validaCadastro = new ValidaCadastro();
 
-        String vagasMS = vagasM.getText().toString();
-        long vagasML = Long.parseLong(vagasMS);
+                String vagasMS = vagasM.getText().toString();
+                long vagasML = Long.parseLong(vagasMS);
 
-        String vagasTS = vagasT.getText().toString();
-        long vagasTL = Long.parseLong(vagasTS);
+                String vagasTS = vagasT.getText().toString();
+                long vagasTL = Long.parseLong(vagasTS);
 
-        String vagasNS = vagasN.getText().toString();
-        long vagasNL = Long.parseLong(vagasNS);
+                String vagasNS = vagasN.getText().toString();
+                long vagasNL = Long.parseLong(vagasNS);
 
-        if (checkBoxM.isChecked()) {
-            if (validaCadastro.isCampoVazio(vagasMS)) {
-                vagasM.requestFocus();
-                vagasM.setError("Campo não preechido");
-            } else {
-                String manha = "Manhã";
-                this.cadastrarHorario(diaSet, manha, vagasML);
+                if (checkBoxM.isChecked()) {
+                    if (validaCadastro.isCampoVazio(vagasMS)) {
+                        vagasM.requestFocus();
+                        vagasM.setError("Campo não preechido");
+                    } else {
+                        String manha = "Manhã";
+                        ServicosMedico servicosMedico = new ServicosMedico(getApplicationContext());
+                        try {
+                            servicosMedico.criarHorario(diaSet, manha, vagasML);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                } else {
+                    vagasM.requestFocus();
+                    vagasM.setError("Horario não será gravado");
+                }
+
+                if (checkBoxT.isChecked()) {
+                    if (validaCadastro.isCampoVazio(vagasTS)) {
+                        vagasT.requestFocus();
+                        vagasT.setError("Campo não preechido");
+                    } else {
+                        String tarde = "Tarde";
+                        ServicosMedico servicosMedico = new ServicosMedico(getApplicationContext());
+                        try {
+                            servicosMedico.criarHorario(diaSet, tarde, vagasTL);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                } else {
+                    vagasT.requestFocus();
+                    vagasT.setError("Horario não será gravado");
+                }
+
+                if (checkBoxN.isChecked()) {
+                    if (validaCadastro.isCampoVazio(vagasNS)) {
+                        vagasN.requestFocus();
+                        vagasN.setError("Campo não preechido");
+                    } else {
+                        String noite = "Noite";
+                        ServicosMedico servicosMedico = new ServicosMedico(getApplicationContext());
+                        try {
+                            servicosMedico.criarHorario(diaSet, noite, vagasNL);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                } else {
+                    vagasN.requestFocus();
+                    vagasN.setError("Horario não será gravado");
+                }
+
             }
-        } else {
-            vagasM.requestFocus();
-            vagasM.setError("Horario não será gravado");
-        }
+        });
 
-        if (checkBoxT.isChecked()) {
-            if (validaCadastro.isCampoVazio(vagasTS)) {
-                vagasT.requestFocus();
-                vagasT.setError("Campo não preechido");
-            } else {
-                String tarde = "Tarde";
-                //this.cadastrarHorario(diaSet, tarde, vagasTL);
-            }
-
-        } else {
-            vagasT.requestFocus();
-            vagasT.setError("Horario não será gravado");
-        }
-
-        if (checkBoxN.isChecked()) {
-            if (validaCadastro.isCampoVazio(vagasNS)) {
-                vagasN.requestFocus();
-                vagasN.setError("Campo não preechido");
-            } else {
-                String noite = "Noite";
-                //this.cadastrarHorario(diaSet, noite, vagasNL);
-            }
-        } else {
-            vagasN.requestFocus();
-            vagasN.setError("Horario não será gravado");
-        }
-    }
-
-    private void cadastrarHorario(String dia, String turno, long vagas) throws Exception {
-        ServicosMedico servicosMedico = new ServicosMedico(getApplicationContext());
-        servicosMedico.criarHorario(dia, turno, vagas);
     }
 
     private void mudarTela(Class tela) {

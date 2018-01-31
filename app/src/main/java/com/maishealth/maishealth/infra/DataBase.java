@@ -10,7 +10,7 @@ import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBan
 import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_PESSOA;
 import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_POSTO;
 import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_USUARIO;
-//import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_HORARIO_MEDICO;
+import static com.maishealth.maishealth.usuario.persistencia.ConstantePopularBanco.INSERIR_HORARIO_MEDICO;
 
 /**
  * Classe responsável por criar tabelas e o banco de dados
@@ -141,6 +141,7 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL(INSERIR_MEDICO);
         db.execSQL(INSERIR_POSTO);
         db.execSQL(INSERIR_MEDICO_POSTO);
+        db.execSQL(INSERIR_HORARIO_MEDICO);
     }
 
     //Atualização da tabela

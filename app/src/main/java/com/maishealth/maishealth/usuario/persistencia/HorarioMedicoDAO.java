@@ -39,7 +39,7 @@ public class HorarioMedicoDAO {
         long idMedico = horarioMedico.getIdMedico();
         values.put(colunaIdMedico, idMedico);
 
-        long id = liteDatabase.insert(tabela, null, values);
+        long id = liteDatabase.insert(tabela,null, values);
 
         liteDatabase.close();
 

@@ -53,9 +53,19 @@ public class ConstantePopularBanco {
             "('Diazepan')," +
             "('Lasartana');";
 
-    public static final String INSERIR_POSTO = "INSERT INTO 'posto' ('nome','local') VALUES"+
-            "('DDDS','DDDDS')," +
-            "('DDDF','DDDDF');";
+    public static final String INSERIR_HORARIO_MEDICO = "INSERT INTO `horario_medico` (`dia_da_semana`,`vagas`,`turno`,`id_est_medico`) VALUES " +
+            "('Segunda',20,'Tarde',1)," +
+            "('Terça',15,'Manhã',2)," +
+            "('Quarta',2,'Tarde',3)," +
+            "('Quinta',25,'Tarde',4)," +
+            "('Sexta',27,'Manhã',5);";
+
+    public static final String INSERIR_POSTO = "INSERT INTO 'posto' ('nome','local') VALUES" +
+            "('Posto Maria Lucinda','Rua A')," +
+            "('Posto B','Rua B')," +
+            "('Posto C','Rua C')," +
+            "('Posto D','Rua D')," +
+            "('Posto E','Rua E');";
 
     public static final String INSERIR_MEDICO_POSTO = "INSERT INTO 'medico_posto' ('id_medico','id_posto') VALUES" +
             "(1,1)," +

@@ -51,11 +51,12 @@ public class ServicosMedico {
 
         long idMedico = 0;
         Medico medico = medicoDAO.getMedico(sharedPreferences.getLong(ID_MEDICO_PREFERENCES, idMedico));
-        HorarioMedico horarioMedico = horarioMedicoDAO.getHorarioMedico(idMedico, dia, turno, vagas);
 
-        if (horarioMedico != null) {
-            throw new Exception("Horário já existe no sistema");
-        } else {
+        try {
+            HorarioMedico horarioMedico = horarioMedicoDAO.getHorarioMedico(idMedico, dia, turno, vagas);
+        } catch (Exception e) {
+            e.printStackTrace();
+            HorarioMedico horarioMedico = new HorarioMedico();
             horarioMedico.setIdMedico(idMedico);
             horarioMedico.setTurno(turno);
             horarioMedico.setVagas(vagas);
