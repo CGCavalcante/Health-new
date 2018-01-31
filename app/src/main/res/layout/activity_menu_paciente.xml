@@ -16,13 +16,12 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/materialup.toolbar"
-            style="@style/ToolBarWithNavigationBack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|enterAlways|snap"
             app:theme="@style/ThemeOverlay.AppCompat.Light"
-            app:title="@string/label_confirmar_consulta"
+            app:title="@string/app_name"
             app:titleTextColor="@color/colorFundo" />
 
     </android.support.design.widget.AppBarLayout>
@@ -45,7 +44,7 @@
     <TextView
         android:id="@+id/lblNomePaciente"
         android:layout_width="211dp"
-        android:layout_height="45dp"
+        android:layout_height="53dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -58,7 +57,7 @@
         app:layout_constraintHorizontal_bias="0.949"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialup.appbar"
-        app:layout_constraintVertical_bias="0.037" />
+        app:layout_constraintVertical_bias="0.038" />
 
     <ScrollView
         android:layout_width="match_parent"

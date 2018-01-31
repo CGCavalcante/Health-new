@@ -83,12 +83,12 @@ public class CalendarioDialog extends AppCompatActivity {
     }
 
     public void voltarMenuMed1(View view) {
-        this.mudarTela(MenuMedicoActivity.class);
+        this.mudarTela(MenuPaciente.class);
     }
 
     @Override
     public void onBackPressed() {
-        this.mudarTela(MenuMedicoActivity.class);
+        this.mudarTela(MenuPaciente.class);
     }
 
 }
