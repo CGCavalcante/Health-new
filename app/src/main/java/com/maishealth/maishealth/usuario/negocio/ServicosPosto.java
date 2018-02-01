@@ -3,6 +3,8 @@ package com.maishealth.maishealth.usuario.negocio;
 import android.content.Context;
 import android.database.Cursor;
 
+import com.maishealth.maishealth.R;
+import com.maishealth.maishealth.usuario.dominio.DadosMedico;
 import com.maishealth.maishealth.usuario.dominio.Medico;
 import com.maishealth.maishealth.usuario.dominio.Pessoa;
 import com.maishealth.maishealth.usuario.persistencia.MedicoPostoDAO;
@@ -17,7 +19,7 @@ import java.util.ArrayList;
  */
 
 public class ServicosPosto {
-    public PessoaDAO pessoaDAO;
+    private PessoaDAO pessoaDAO;
     private PostoDAO postoDAO;
     private MedicoPostoDAO medicoPostoDAO;
 
@@ -27,58 +29,49 @@ public class ServicosPosto {
         pessoaDAO = new PessoaDAO(context);
     }
 
-    public ArrayList<String> getPessoaByMedico(ArrayList<Medico> medicos) {
+    private ArrayList<String> getPessoaByMedico(ArrayList<Medico> medicos) {
         ArrayList<String> pessoasMedico = new ArrayList<String>();
         for (Medico medico :medicos){
             long idUsuario = medico.getIdUsuario();
             Pessoa pessoa = pessoaDAO.getPessoaByIdUsuario(idUsuario);
-
             pessoasMedico.add(pessoa.getNome());
 
         }
-
         return pessoasMedico;
     }
 
-    public ArrayList<String> getEspecByMedico(ArrayList<Medico> medicos){
+    private ArrayList<String> getEspecByMedico(ArrayList<Medico> medicos) {
         ArrayList<String> especMedico = new ArrayList<String>();
         for (Medico medico : medicos){
             String espec = medico.getEspecialidade();
             especMedico.add(espec);
 
         }
-
         return especMedico;
-
 
     }
 
-    public ArrayList<String> nomeEspecMedico(ArrayList<String> nomes, ArrayList<String> especs) {
-        ArrayList<String> nomeEspec = new ArrayList<String>();
+    private ArrayList<DadosMedico> nomeEspecMedico(ArrayList<String> nomes, ArrayList<String> especs) {
+        ArrayList<DadosMedico> nomeEspec = new ArrayList<DadosMedico>();
 
         long tamanho = nomes.size();
-
-
         for (int i = 0; i < tamanho; i++) {
             String nome = nomes.get(i);
             String espec = especs.get(i);
 
-            String saida = "Nome: " + nome + "\nEspecialidade: " + espec;
+            nomeEspec.add(new DadosMedico(i + 1, nome, espec, R.drawable.user_avatar));
 
-            nomeEspec.add(saida);
         }
-
         return nomeEspec;
     }
 
-    public ArrayList<String> returnNomeMedicos(long id) {
+    public ArrayList<DadosMedico> returnNomeMedicos(long id) {
         ArrayList<Medico> medicos = medicoPostoDAO.getMedicosByPosto(id);
 
         ArrayList<String> pessoasMedico = getPessoaByMedico(medicos);
         ArrayList<String> especMedico = getEspecByMedico(medicos);
 
-        ArrayList<String> nomeEspec = nomeEspecMedico(pessoasMedico, especMedico);
-
+        ArrayList<DadosMedico> nomeEspec = nomeEspecMedico(pessoasMedico, especMedico);
 
         return nomeEspec;
     }

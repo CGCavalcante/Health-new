@@ -93,7 +93,7 @@
                     android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:background="@color/colorText"
-                    android:onClick="teste"
+                    android:onClick="emConstrucao"
                     android:text="Esqueceu senha"
                     android:textColor="@color/colorTextoBut"
                     android:textStyle="bold" />
@@ -130,7 +130,7 @@
                     android:layout_marginStart="0dp"
                     android:background="@null"
                     android:contentDescription="@string/button_emergencia"
-                    android:onClick="acionarEmergencia"
+                    android:onClick="teste"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/bt_recuperar_senha"
                     app:layout_constraintHorizontal_bias="0.187"

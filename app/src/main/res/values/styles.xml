@@ -1,7 +1,7 @@
 
 <resources>
     <color name="brand_primary">#4659c4</color>
-    <color name="brand_primary_dark">#3646A8</color>
+    <color name="brand_primary_dark">#19235f</color>
     <color name="brand_accent">#d97c9c</color>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">

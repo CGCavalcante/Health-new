@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
         this.mudarTela(Cadastrar.class);
     }
 
-    public void acionarEmergencia(View view){
+    public void emConstrucao(View view) {
         GuiUtil.myToast(this, EM_CONSTRUCAO);
     }
 
@@ -98,6 +98,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void teste(View view) {
-        this.mudarTela(ListagemActivity.class);
+        this.mudarTela(ListaMedicos.class);
     }
 }
