@@ -11,7 +11,9 @@ public class ConstantePopularBanco {
             "('g@gmail.com','111111')," +
             "('h@gmail.com','111111')," +
             "('i@gmail.com','111111')," +
-            "('j@gmail.com','111111');";
+            "('j@gmail.com','111111')," +
+            "('u@gmail.com','111111')," +
+            "('v@gmail.com','111111');";
 
     public static final String INSERIR_PESSOA = "INSERT INTO `pessoa` (`nome`,`sexo`,`data_nasc`,`cpf`,`id_est_usuario`) VALUES " +
             "('Maite Stokes','Feminino','19500212','079.476.434-00',1)," +
@@ -50,10 +52,26 @@ public class ConstantePopularBanco {
             "('Dorflex')," +
             "('Diazepan')," +
             "('Lasartana');";
-    /*
-    public static final String INSERIR_HORARIO_MEDICO = "INSERT INTO 'horario_medico' ('data','vagas','horario') VALUES" +
-            "('30/01/2018','20','Manhã')," +
-            "('31/01/2018','15','Tarde');";
-            */
+
+    public static final String INSERIR_HORARIO_MEDICO = "INSERT INTO `horario_medico` (`dia_da_semana`,`vagas`,`turno`,`id_est_medico`) VALUES " +
+            "('Segunda',20,'Tarde',1)," +
+            "('Terça',15,'Manhã',2)," +
+            "('Quarta',2,'Tarde',3)," +
+            "('Quinta',25,'Tarde',4)," +
+            "('Sexta',27,'Manhã',5);";
+
+    public static final String INSERIR_POSTO = "INSERT INTO 'posto' ('nome','local') VALUES" +
+            "('Posto Maria Lucinda','Rua A')," +
+            "('Posto B','Rua B')," +
+            "('Posto C','Rua C')," +
+            "('Posto D','Rua D')," +
+            "('Posto E','Rua E');";
+
+    public static final String INSERIR_MEDICO_POSTO = "INSERT INTO 'medico_posto' ('id_medico','id_posto') VALUES" +
+            "(1,1)," +
+            "(2,1)," +
+            "(3,1)," +
+            "(4,1)," +
+            "(5,1);";
 
 }

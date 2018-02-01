@@ -1,18 +1,13 @@
 
 <resources>
-    <color name="brand_primary">#3E50B4</color>
+    <color name="brand_primary">#4659c4</color>
     <color name="brand_primary_dark">#3646A8</color>
-    <color name="brand_accent">#FE3E80</color>
+    <color name="brand_accent">#d97c9c</color>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorPrimaryDark</item>
-    </style>
-
-    <style name="AppTheme.SimpleCoordinatorTheme">
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
     <style name="ToolBarWithNavigationBack" >

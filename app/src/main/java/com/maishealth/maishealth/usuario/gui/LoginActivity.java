@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText edtEmailLogin, edtSenhaLogin;
     private SharedPreferences sharedPreferences;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void tela1Cadastro(View view) {
-        this.mudarTela(SignUpActivity.class);
+        this.mudarTela(Cadastrar.class);
     }
 
     public void acionarEmergencia(View view){
@@ -96,8 +97,7 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
-
-    //public void fecharApp(View view){
-      //  finish();
-    //}
+    public void teste(View view) {
+        this.mudarTela(ListagemActivity.class);
+    }
 }

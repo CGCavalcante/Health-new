@@ -2,33 +2,10 @@ package com.maishealth.maishealth.usuario.dominio;
 
 
 public class Consulta {
-    private String data;
-    private String turno;
-    private String descricao;
     private long idPaciente;
-    private long idMedico;
+    private long id_data_horario;
     private String status;
     private long id;
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
-
-    public String getTurno() { return turno; }
-
-    public void setTurno(String turno) {this.turno = turno;}
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
 
     public long getIdPaciente() {
         return idPaciente;
@@ -38,12 +15,12 @@ public class Consulta {
         this.idPaciente = idPaciente;
     }
 
-    public long getIdMedico() {
-        return idMedico;
+    public long getId_data_horario() {
+        return id_data_horario;
     }
 
-    public void setIdMedico(long idMedico) {
-        this.idMedico = idMedico;
+    public void setId_data_horario(long id_data_horario) {
+        this.id_data_horario = id_data_horario;
     }
 
     public String getStatus() {

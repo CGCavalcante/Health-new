@@ -5,10 +5,10 @@ import android.content.SharedPreferences;
 
 import com.maishealth.maishealth.usuario.dominio.Consulta;
 import com.maishealth.maishealth.usuario.dominio.EnumStatusConsulta;
-import com.maishealth.maishealth.usuario.dominio.Medicamento;
+import com.maishealth.maishealth.usuario.dominio.HorarioMedico;
 import com.maishealth.maishealth.usuario.dominio.Medico;
 import com.maishealth.maishealth.usuario.persistencia.ConsultaDAO;
-import com.maishealth.maishealth.usuario.persistencia.MedicamentoDAO;
+import com.maishealth.maishealth.usuario.persistencia.HorarioMedicoDAO;
 import com.maishealth.maishealth.usuario.persistencia.MedicoDAO;
 
 import static com.maishealth.maishealth.infra.ConstanteSharedPreferences.ID_MEDICO_PREFERENCES;
@@ -17,6 +17,7 @@ import static com.maishealth.maishealth.infra.ConstanteSharedPreferences.TITLE_P
 public class ServicosMedico {
     private MedicoDAO medicoDAO;
     private ConsultaDAO consultaDAO;
+    private HorarioMedicoDAO horarioMedicoDAO;
     private SharedPreferences sharedPreferences;
 
 
@@ -42,23 +43,44 @@ public class ServicosMedico {
     }
 
 
-    private long criarConsulta (Consulta consulta){return consultaDAO.inserirConsulta(consulta); }
-    public long criarConsulta (Medico medico, String data, String turno){
-        Consulta consulta = new Consulta();
-        consulta.setIdMedico(medico.getId());
-        consulta.setData(data);
-        consulta.setStatus(EnumStatusConsulta.DISPONIVEL.toString());
-        consulta.setTurno(turno);
-
-        return criarConsulta(consulta);
+    public long criarHorario(HorarioMedico horarioMedico) {
+        return horarioMedicoDAO.inserirHorarioMedico(horarioMedico);
     }
 
-    public void registrarConsultas(String data, int qtdVagas, String turno){
-        long idMedico = 0;
-        Medico medico = medicoDAO.getMedico(sharedPreferences.getLong(ID_MEDICO_PREFERENCES,idMedico));
-        int contador;
-        contador = 1;
-        while (contador <= qtdVagas){ criarConsulta(medico, data, turno); contador++; }
+    public void criarHorario(String dia, String turno, long vagas) throws Exception {
 
+        long idMedico = 0;
+        Medico medico = medicoDAO.getMedico(sharedPreferences.getLong(ID_MEDICO_PREFERENCES, idMedico));
+
+        try {
+            HorarioMedico horarioMedico = horarioMedicoDAO.getHorarioMedico(idMedico, dia, turno, vagas);
+        } catch (Exception e) {
+            e.printStackTrace();
+            HorarioMedico horarioMedico = new HorarioMedico();
+            horarioMedico.setIdMedico(idMedico);
+            horarioMedico.setTurno(turno);
+            horarioMedico.setVagas(vagas);
+            horarioMedico.setDiaSemana(dia);
+            criarHorario(horarioMedico);
+        }
+    }
+
+    private long atualizarHorario(HorarioMedico horarioMedico) {
+        return horarioMedicoDAO.atualizaHorarioMedico(horarioMedico);
+    }
+
+    public void atualizarHorario(Long idMedico, String dia, String turno, long vagas) throws Exception {
+
+        HorarioMedico horarioMedico = horarioMedicoDAO.getHorarioMedico(idMedico, dia, turno, vagas);
+
+        if (horarioMedico == null) {
+            throw new Exception("Horário não existe no sistema");
+        } else {
+            horarioMedico.setIdMedico(idMedico);
+            horarioMedico.setTurno(turno);
+            horarioMedico.setVagas(vagas);
+            horarioMedico.setDiaSemana(dia);
+            atualizarHorario(horarioMedico);
+        }
     }
 }
