@@ -27,7 +27,7 @@ public class ServicosPosto {
         pessoaDAO = new PessoaDAO(context);
     }
 
-    /*public ArrayList<String> getPessoaByMedico(ArrayList<Medico> medicos){
+    public ArrayList<String> getPessoaByMedico(ArrayList<Medico> medicos) {
         ArrayList<String> pessoasMedico = new ArrayList<String>();
         for (Medico medico :medicos){
             long idUsuario = medico.getIdUsuario();
@@ -51,28 +51,36 @@ public class ServicosPosto {
         return especMedico;
 
 
-    }*/
+    }
+
+    public ArrayList<String> nomeEspecMedico(ArrayList<String> nomes, ArrayList<String> especs) {
+        ArrayList<String> nomeEspec = new ArrayList<String>();
+
+        long tamanho = nomes.size();
+
+
+        for (int i = 0; i < tamanho; i++) {
+            String nome = nomes.get(i);
+            String espec = especs.get(i);
+
+            String saida = "Nome: " + nome + "\nEspecialidade: " + espec;
+
+            nomeEspec.add(saida);
+        }
+
+        return nomeEspec;
+    }
 
     public ArrayList<String> returnNomeMedicos(long id) {
-        /*medicoPostoDAO.inserirMedicoPosto(1,1);
-        medicoPostoDAO.inserirMedicoPosto(2,1);
-        medicoPostoDAO.inserirMedicoPosto(3,1);
-        medicoPostoDAO.inserirMedicoPosto(4,1);
+        ArrayList<Medico> medicos = medicoPostoDAO.getMedicosByPosto(id);
 
-        //ArrayList<Medico> medicos = medicoPostoDAO.getMedicosByPosto(id);
+        ArrayList<String> pessoasMedico = getPessoaByMedico(medicos);
+        ArrayList<String> especMedico = getEspecByMedico(medicos);
 
-        //ArrayList<String> pessoasMedico = getPessoaByMedico(medicos);
+        ArrayList<String> nomeEspec = nomeEspecMedico(pessoasMedico, especMedico);
 
-        //ArrayList<String> especMedico = getEspecByMedico(medicos);*/
 
-        ArrayList<String> especMedico = new ArrayList<String>();
-
-        especMedico.add("ffff");
-        especMedico.add("ffff");
-        especMedico.add("ffff");
-        especMedico.add("ffff");
-
-        return especMedico;
+        return nomeEspec;
     }
 
 }

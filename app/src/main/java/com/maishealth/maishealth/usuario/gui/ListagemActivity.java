@@ -1,11 +1,14 @@
 package com.maishealth.maishealth.usuario.gui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.maishealth.maishealth.R;
+import com.maishealth.maishealth.usuario.negocio.ServicosPosto;
 
 import java.util.ArrayList;
 
@@ -27,17 +30,20 @@ public class ListagemActivity extends AppCompatActivity {
     }
 
     private ArrayList<String> preencher() {
-        ArrayList<String> dados = new ArrayList<String>();
+        ServicosPosto servicosPosto = new ServicosPosto(getApplicationContext());
 
-        dados.add("ffff");
-        dados.add("ffff");
-        dados.add("ffff");
-        dados.add("ffff");
-        dados.add("ffff");
-        dados.add("ffff");
-        dados.add("ffff");
-        dados.add("ffff");
+        ArrayList<String> dados = servicosPosto.returnNomeMedicos(1);
 
         return dados;
+    }
+
+    private void mudarTela(Class tela) {
+        Intent intent = new Intent(this, tela);
+        startActivity(intent);
+        finish();
+    }
+
+    public void voltar(View view) {
+        this.mudarTela(LoginActivity.class);
     }
 }

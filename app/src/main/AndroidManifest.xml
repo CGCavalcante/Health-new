@@ -58,7 +58,8 @@
             android:label="@string/label_lista_consultas_medico" />
         <activity android:name=".usuario.gui.HorarioMedicoAct" />
         <activity android:name=".usuario.gui.CalendarioDialog" />
-        <activity android:name=".usuario.gui.SetarHorario"></activity>
+        <activity android:name=".usuario.gui.SetarHorario" />
+        <activity android:name=".usuario.gui.ListagemActivity"></activity>
     </application>
 
 </manifest>
