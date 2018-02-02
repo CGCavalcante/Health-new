@@ -20,12 +20,11 @@ public class ServicosMedico {
     private HorarioMedicoDAO horarioMedicoDAO;
     private SharedPreferences sharedPreferences;
 
-
     public ServicosMedico(Context context) {
         sharedPreferences = context.getSharedPreferences(TITLE_PREFERENCES, Context.MODE_PRIVATE);
         medicoDAO = new MedicoDAO(context);
         consultaDAO = new ConsultaDAO(context);
-    }
+        horarioMedicoDAO = new HorarioMedicoDAO(context);    }
 
 
     private long cadastrarMedico(Medico medico){
@@ -52,17 +51,12 @@ public class ServicosMedico {
         long idMedico = 0;
         Medico medico = medicoDAO.getMedico(sharedPreferences.getLong(ID_MEDICO_PREFERENCES, idMedico));
 
-        try {
-            HorarioMedico horarioMedico = horarioMedicoDAO.getHorarioMedico(idMedico, dia, turno, vagas);
-        } catch (Exception e) {
-            e.printStackTrace();
             HorarioMedico horarioMedico = new HorarioMedico();
-            horarioMedico.setIdMedico(idMedico);
+            horarioMedico.setIdMedico(medico.getId());
             horarioMedico.setTurno(turno);
             horarioMedico.setVagas(vagas);
             horarioMedico.setDiaSemana(dia);
             criarHorario(horarioMedico);
-        }
     }
 
     private long atualizarHorario(HorarioMedico horarioMedico) {
