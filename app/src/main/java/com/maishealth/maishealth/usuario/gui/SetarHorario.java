@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -18,7 +17,6 @@ public class SetarHorario extends AppCompatActivity {
     private TextView diaSemana;
     private CheckBox checkBoxM, checkBoxT, checkBoxN;
     private EditText vagasM, vagasT, vagasN;
-    private Button btnConfirmar, btnVoltar;
     private String diaSet;
 
     @Override
@@ -43,77 +41,69 @@ public class SetarHorario extends AppCompatActivity {
         vagasT = findViewById(R.id.vagasT);
         vagasN = findViewById(R.id.vagasN);
 
-        btnConfirmar = findViewById(R.id.btnConfirmar);
-
     }
-    public void confirmarHorario(View view){
+    public void confirmarHorario(View view)  {
         ServicosMedico servicosMedico = new ServicosMedico(getApplicationContext());
         ValidaCadastro validaCadastro = new ValidaCadastro();
+        boolean valido = true;
+        boolean jaPreenchido = false;
 
         String vagasMS = vagasM.getText().toString();
-        long vagasML = Long.parseLong(vagasMS);
-
         String vagasTS = vagasT.getText().toString();
-        long vagasTL = Long.parseLong(vagasTS);
-
         String vagasNS = vagasN.getText().toString();
-        long vagasNL = Long.parseLong(vagasNS);
 
-        if (checkBoxM.isChecked()) {
-            if (validaCadastro.isCampoVazio(vagasMS)) {
-                vagasM.requestFocus();
-                vagasM.setError("Campo não preechido");
-            } else {
-                String manha = "Manhã";
+        String manha = "Manhã";
+        String tarde = "Tarde";
+        String noite = "Noite";
+
+        if (validaCadastro.isCampoVazio(vagasMS) || !checkBoxM.isChecked()) {
+            vagasM.requestFocus();
+            vagasM.setError("Campo não preechido");
+            valido = false;
+        }
+
+        if (validaCadastro.isCampoVazio(vagasTS) || !checkBoxT.isChecked()) {
+            vagasT.requestFocus();
+            vagasT.setError("Campo não preechido");
+            valido = false;
+        }
+
+        if (validaCadastro.isCampoVazio(vagasNS) || !checkBoxN.isChecked()) {
+            vagasN.requestFocus();
+            vagasN.setError("Campo não preechido");
+            valido = false;
+        }
+
+            if (valido) {
+
                 try {
+                    long vagasML = Long.parseLong(vagasMS);
                     servicosMedico.criarHorario(diaSet, manha, vagasML);
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    jaPreenchido = true;
                 }
-            }
-        } else {
-            vagasM.requestFocus();
-            vagasM.setError("Horario não será gravado");
-        }
 
-        if (checkBoxT.isChecked()) {
-            if (validaCadastro.isCampoVazio(vagasTS)) {
-                vagasT.requestFocus();
-                vagasT.setError("Campo não preechido");
-            } else {
-                String tarde = "Tarde";
                 try {
+                    long vagasTL = Long.parseLong(vagasTS);
                     servicosMedico.criarHorario(diaSet, tarde, vagasTL);
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    jaPreenchido = true;
                 }
-            }
 
-        } else {
-            vagasT.requestFocus();
-            vagasT.setError("Horario não será gravado");
-        }
-
-        if (checkBoxN.isChecked()) {
-            if (validaCadastro.isCampoVazio(vagasNS)) {
-                vagasN.requestFocus();
-                vagasN.setError("Campo não preechido");
-            } else {
-                String noite = "Noite";
                 try {
+                    long vagasNL = Long.parseLong(vagasNS);
                     servicosMedico.criarHorario(diaSet, noite, vagasNL);
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    jaPreenchido = true;
                 }
+                if (jaPreenchido){
+                    GuiUtil.myToast(this, "Este horário já foi preenchido!");
+                }else {
+                    GuiUtil.myToast(this, "Horário inserido com sucesso!");
+                    this.voltarHoraMed(view);
+                }
+
             }
-        } else {
-            vagasN.requestFocus();
-            vagasN.setError("Horario não será gravado");
-        }
-
-
-        GuiUtil.myToast(this, "Horário inserido com sucesso!");
-        this.voltarHoraMed(view);
     }
 
     private void mudarTela(Class tela) {

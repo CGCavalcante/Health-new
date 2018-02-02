@@ -47,16 +47,20 @@ public class ServicosMedico {
     }
 
     public void criarHorario(String dia, String turno, long vagas) throws Exception {
-
         long idMedico = 0;
         Medico medico = medicoDAO.getMedico(sharedPreferences.getLong(ID_MEDICO_PREFERENCES, idMedico));
+        HorarioMedico horarioMedico = horarioMedicoDAO.getHorarioMedico(medico.getId(), dia,turno);
 
-            HorarioMedico horarioMedico = new HorarioMedico();
-            horarioMedico.setIdMedico(medico.getId());
-            horarioMedico.setTurno(turno);
-            horarioMedico.setVagas(vagas);
-            horarioMedico.setDiaSemana(dia);
-            criarHorario(horarioMedico);
+        if (horarioMedico == null) {
+            HorarioMedico horarioMedicoIns = new HorarioMedico();
+            horarioMedicoIns.setIdMedico(medico.getId());
+            horarioMedicoIns.setTurno(turno);
+            horarioMedicoIns.setVagas(vagas);
+            horarioMedicoIns.setDiaSemana(dia);
+            criarHorario(horarioMedicoIns);
+        }else {
+            throw new Exception("Horário já cadastrado!");
+        }
     }
 
     private long atualizarHorario(HorarioMedico horarioMedico) {
@@ -65,7 +69,7 @@ public class ServicosMedico {
 
     public void atualizarHorario(Long idMedico, String dia, String turno, long vagas) throws Exception {
 
-        HorarioMedico horarioMedico = horarioMedicoDAO.getHorarioMedico(idMedico, dia, turno, vagas);
+        HorarioMedico horarioMedico = horarioMedicoDAO.getHorarioMedico(idMedico, dia, turno);
 
         if (horarioMedico == null) {
             throw new Exception("Horário não existe no sistema");
