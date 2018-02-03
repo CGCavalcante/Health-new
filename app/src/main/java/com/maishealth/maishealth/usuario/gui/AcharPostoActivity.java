@@ -15,7 +15,7 @@ public class AcharPostoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_achar_posto);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.materialup_toolbar);
+        Toolbar toolbar = findViewById(R.id.materialup_toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 onBackPressed();
@@ -28,6 +28,8 @@ public class AcharPostoActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    public void initMap(){this.mudarTela(MapsActivity.class);}
     
     @Override
     public void onBackPressed() {

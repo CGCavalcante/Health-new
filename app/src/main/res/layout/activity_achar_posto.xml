@@ -53,6 +53,7 @@
         android:layout_marginTop="32dp"
         android:background="@color/colorButoes"
         android:text="@string/button_teste_login"
+        android:onClick="initMap"
         android:textColor="@color/colorTextoBut"
         app:layout_constraintEnd_toEndOf="@+id/textView6"
         app:layout_constraintStart_toStartOf="@+id/textView6"

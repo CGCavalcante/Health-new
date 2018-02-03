@@ -179,5 +179,15 @@
     <string name="about">This example shows different CoordinatorLayout usage examples, like the use of \'anchor\' in views,</string>
     <string name="swype.help">The \'Swipe to dismiss\' behavior allows you to easily add the \'Swipe to dismiss\' functionality in a View inside a CoordinatorLayout</string>
     <string name="subtitle_mup">Here I am with a subtitle</string>
+    <string name="oi">oi</string>
+    <string name="textView">Textview</string>
+    <string name="data">Data</string>
+    <string name="nome">Nome</string>
+    <string name="especialidade">Especialidade</string>
+    <string name="dias_semana">Dias da Semana</string>
+    <string name="lista_de_medicos">Lista de Medicos</string>
+    <string name="voltar">Voltar</string>
+    <string name="turnos">Turnos</string>
+    <string name="title_activity_maps">Localização de postos</string>
 
 </resources>
