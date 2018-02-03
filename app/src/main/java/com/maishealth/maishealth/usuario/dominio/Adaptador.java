@@ -1,6 +1,5 @@
 package com.maishealth.maishealth.usuario.dominio;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +12,10 @@ import com.maishealth.maishealth.R;
 import com.maishealth.maishealth.usuario.dominio.DadosMedico;
 
 import java.util.List;
+
+/**
+ * Created by Wenderson de Souza on 01/02/2018.
+ */
 
 public class Adaptador extends BaseAdapter {
 
@@ -39,7 +42,6 @@ public class Adaptador extends BaseAdapter {
         return listaMedicos.get(position).getId();
     }
 
-    @SuppressLint("ViewHolder")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View vista = convertView;
@@ -47,12 +49,12 @@ public class Adaptador extends BaseAdapter {
         LayoutInflater inflater = LayoutInflater.from(contexto);
         vista = inflater.inflate(R.layout.lista_medico_by_posto, null);
 
-        ImageView imagem = vista.findViewById(R.id.imagem);
-        TextView nomeMedico =vista.findViewById(R.id.nomeMedico);
-        TextView especMedico =vista.findViewById(R.id.especMedico);
+        ImageView imagem = (ImageView) vista.findViewById(R.id.imagem);
+        TextView nomeMedico = (TextView) vista.findViewById(R.id.nomeMedico);
+        TextView especMedico = (TextView) vista.findViewById(R.id.especMedico);
 
-        nomeMedico.setText(listaMedicos.get(position).getNome());
-        especMedico.setText(listaMedicos.get(position).getEspecialidade());
+        nomeMedico.setText(listaMedicos.get(position).getNome().toString());
+        especMedico.setText(listaMedicos.get(position).getEspecialidade().toString());
         imagem.setImageResource(listaMedicos.get(position).getImagem());
 
         return vista;

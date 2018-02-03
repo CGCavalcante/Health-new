@@ -2,6 +2,10 @@ package com.maishealth.maishealth.usuario.dominio;
 
 import java.io.Serializable;
 
+/**
+ * Created by Wenderson de Souza on 01/02/2018.
+ */
+
 public class DadosMedico implements Serializable {
     private int id;
     private String nome;

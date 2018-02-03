@@ -35,7 +35,7 @@ public class MeuHistoricoActivity extends AppCompatActivity {
         MeuHistoricoActivity.CustomAdapter customAdapter = new MeuHistoricoActivity.CustomAdapter();
 
         listView.setAdapter(customAdapter);
-        Toolbar toolbar = findViewById(R.id.materialup_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.materialup_toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 onBackPressed();

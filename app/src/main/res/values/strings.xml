@@ -81,7 +81,7 @@
     <string name="prompt_data">dd/mm/aaaa</string>
     <string name="prompt_crm">CRM</string>
     <string name="prompt_especialidade">Especialidade</string>
-    <string name="prompt_nome_tela_Pac" />
+    <string name="prompt_nome_tela_Pac"></string>
     <string name="prompt_nome_tela_med">Nome</string>
     <string name="prompt_email_tela_med">Email</string>
     <string name="prompt_senha_tela_med">Senha</string>
