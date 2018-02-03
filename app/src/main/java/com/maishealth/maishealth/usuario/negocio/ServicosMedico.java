@@ -20,12 +20,11 @@ public class ServicosMedico {
     private HorarioMedicoDAO horarioMedicoDAO;
     private SharedPreferences sharedPreferences;
 
-
     public ServicosMedico(Context context) {
         sharedPreferences = context.getSharedPreferences(TITLE_PREFERENCES, Context.MODE_PRIVATE);
         medicoDAO = new MedicoDAO(context);
         consultaDAO = new ConsultaDAO(context);
-    }
+        horarioMedicoDAO = new HorarioMedicoDAO(context);    }
 
 
     private long cadastrarMedico(Medico medico){
@@ -48,20 +47,19 @@ public class ServicosMedico {
     }
 
     public void criarHorario(String dia, String turno, long vagas) throws Exception {
-
         long idMedico = 0;
         Medico medico = medicoDAO.getMedico(sharedPreferences.getLong(ID_MEDICO_PREFERENCES, idMedico));
+        HorarioMedico horarioMedico = horarioMedicoDAO.getHorarioMedico(medico.getId(), dia,turno);
 
-        try {
-            HorarioMedico horarioMedico = horarioMedicoDAO.getHorarioMedico(idMedico, dia, turno, vagas);
-        } catch (Exception e) {
-            e.printStackTrace();
-            HorarioMedico horarioMedico = new HorarioMedico();
-            horarioMedico.setIdMedico(idMedico);
-            horarioMedico.setTurno(turno);
-            horarioMedico.setVagas(vagas);
-            horarioMedico.setDiaSemana(dia);
-            criarHorario(horarioMedico);
+        if (horarioMedico == null) {
+            HorarioMedico horarioMedicoIns = new HorarioMedico();
+            horarioMedicoIns.setIdMedico(medico.getId());
+            horarioMedicoIns.setTurno(turno);
+            horarioMedicoIns.setVagas(vagas);
+            horarioMedicoIns.setDiaSemana(dia);
+            criarHorario(horarioMedicoIns);
+        }else {
+            throw new Exception("Horário já cadastrado!");
         }
     }
 
@@ -71,7 +69,7 @@ public class ServicosMedico {
 
     public void atualizarHorario(Long idMedico, String dia, String turno, long vagas) throws Exception {
 
-        HorarioMedico horarioMedico = horarioMedicoDAO.getHorarioMedico(idMedico, dia, turno, vagas);
+        HorarioMedico horarioMedico = horarioMedicoDAO.getHorarioMedico(idMedico, dia, turno);
 
         if (horarioMedico == null) {
             throw new Exception("Horário não existe no sistema");
