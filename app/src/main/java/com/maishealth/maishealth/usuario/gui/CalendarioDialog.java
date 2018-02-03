@@ -22,7 +22,6 @@ public class CalendarioDialog extends AppCompatActivity {
     Button btnConfirmarConsultas;
     Button btnClick;
     TextView textData;
-    private EditText editTextQtdVagasMed;
     private Spinner spinnerHorarioMedico;
 
     @Override
@@ -30,7 +29,6 @@ public class CalendarioDialog extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendario_dialog);
 
-        editTextQtdVagasMed = findViewById(R.id.editTextQtdVagasMed);
         spinnerHorarioMedico = findViewById(R.id.editTextInicioHorMed);
         btnConfirmarConsultas = findViewById(R.id.bt_confirmar_hor_montado_med);
 
