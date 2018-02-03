@@ -1,5 +1,6 @@
 package com.maishealth.maishealth.usuario.gui;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -43,5 +44,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    }
+
+    private void mudarTela(Class tela) {
+        Intent intent = new Intent(this, tela);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.mudarTela(ListaEspecialidade.class);
     }
 }

@@ -12,8 +12,8 @@
 
         <ImageView
             android:id="@+id/imagem"
-            android:layout_width="250dp"
-            android:layout_height="120dp"
+            android:layout_width="200dp"
+            android:layout_height="95dp"
             android:layout_weight="1"
             app:srcCompat="@color/brand_primary_dark" />
 
@@ -27,7 +27,7 @@
                 android:id="@+id/nomeMedico"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
                 android:text="Nome"
                 android:textColor="#000000"
@@ -37,8 +37,17 @@
                 android:id="@+id/especMedico"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="15dp"
                 android:text="Especialidade"
+                android:textColor="#000000"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="Avaliacao"
                 android:textColor="#000000"
                 android:textSize="20dp" />
 
