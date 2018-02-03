@@ -31,7 +31,7 @@ public class ConsultasPendentesActivity extends AppCompatActivity {
             ConsultasPendentesActivity.CustomAdapter customAdapter=new ConsultasPendentesActivity.CustomAdapter();
 
         listView.setAdapter(customAdapter);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.materialup_toolbar);
+        Toolbar toolbar = findViewById(R.id.materialup_toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 onBackPressed();

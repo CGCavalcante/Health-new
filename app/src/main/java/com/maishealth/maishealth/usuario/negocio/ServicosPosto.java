@@ -14,10 +14,6 @@ import com.maishealth.maishealth.usuario.persistencia.UsuarioDAO;
 
 import java.util.ArrayList;
 
-/**
- * Created by Wenderson de Souza on 31/01/2018.
- */
-
 public class ServicosPosto {
     private PessoaDAO pessoaDAO;
     private PostoDAO postoDAO;

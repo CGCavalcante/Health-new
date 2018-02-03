@@ -15,7 +15,7 @@ public class ConfirmarConsulta extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmar_consulta);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.materialup_toolbar);
+        Toolbar toolbar = findViewById(R.id.materialup_toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 onBackPressed();

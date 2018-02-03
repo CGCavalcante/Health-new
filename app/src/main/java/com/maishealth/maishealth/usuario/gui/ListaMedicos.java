@@ -26,7 +26,7 @@ public class ListaMedicos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_medicos);
 
-        listaMedicos = (ListView) findViewById(R.id.lstMedicos);
+        listaMedicos = findViewById(R.id.lstMedicos);
 
         lista = preencher();
 
@@ -43,7 +43,7 @@ public class ListaMedicos extends AppCompatActivity {
                 GuiUtil.myToast(getApplicationContext(), "Especialidade:" + obj.getEspecialidade());
 
                 Intent passar = new Intent(getApplicationContext(), DetalhesMedico.class);
-                passar.putExtra("objeto", (Serializable) obj);
+                passar.putExtra("objeto", obj);
                 startActivity(passar);
 
             }

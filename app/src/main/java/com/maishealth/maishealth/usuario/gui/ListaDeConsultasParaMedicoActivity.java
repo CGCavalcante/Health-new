@@ -29,12 +29,12 @@ public class ListaDeConsultasParaMedicoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_de_consultas_para_medico);
 
-        ListView listView=(ListView) findViewById(R.id.listView);
+        ListView listView= findViewById(R.id.listView);
         ListaDeConsultasParaMedicoActivity.CustomAdapter customAdapter=new ListaDeConsultasParaMedicoActivity.CustomAdapter();
 
         listView.setAdapter(customAdapter);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.materialup_toolbar);
+        Toolbar toolbar = findViewById(R.id.materialup_toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 onBackPressed();
@@ -65,9 +65,9 @@ public class ListaDeConsultasParaMedicoActivity extends AppCompatActivity {
         public View getView(int i, View view, ViewGroup viewGroup) {
             view = getLayoutInflater().inflate(R.layout.customlayout, null);
 
-            ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
-            TextView textView_name = (TextView) view.findViewById(R.id.textView_name);
-            TextView textView_description = (TextView) view.findViewById(R.id.textView_descriptions);
+            ImageView imageView = view.findViewById(R.id.imageView);
+            TextView textView_name = view.findViewById(R.id.textView_name);
+            TextView textView_description = view.findViewById(R.id.textView_descriptions);
 
 
             //imageView.setImageResource(IMAGES2[i]);
