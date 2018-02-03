@@ -94,7 +94,7 @@
                     android:layout_weight="1"
                     android:background="@color/colorText"
                     android:onClick="emConstrucao"
-                    android:text="Esqueceu senha"
+                    android:text="@string/link_esqueceu_senha"
                     android:textColor="@color/colorTextoBut"
                     android:textStyle="bold" />
 
@@ -108,7 +108,7 @@
                     android:layout_weight="1"
                     android:background="@color/colorText"
                     android:onClick="tela1Cadastro"
-                    android:text="Sign Up"
+                    android:text="@string/button_cadastro"
                     android:textColor="@color/colorTextoBut"
                     android:textStyle="bold" />
 
