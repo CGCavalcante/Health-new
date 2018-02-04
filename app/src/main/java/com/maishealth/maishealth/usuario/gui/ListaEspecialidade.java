@@ -31,7 +31,7 @@ public class ListaEspecialidade extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String espec = (String) parent.getItemAtPosition(position);
 
-                Intent proximo = new Intent(getApplicationContext(), MapsActivity.class);
+                Intent proximo = new Intent(getApplicationContext(), CalendarioDialog.class);
                 proximo.putExtra("espec", espec);
                 startActivity(proximo);
             }

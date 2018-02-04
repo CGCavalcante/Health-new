@@ -18,7 +18,7 @@ import com.maishealth.maishealth.R;
 import java.util.Calendar;
 
 public class CalendarioDialog extends AppCompatActivity {
-    private final String[] listaHorarioMedico = {"Manhã", "Tarde"};
+    private final String[] listaHorarioMedico = {"Manhã", "Tarde", "Noite"};
     Button btnConfirmarConsultas;
     Button btnClick;
     TextView textData;
@@ -81,12 +81,16 @@ public class CalendarioDialog extends AppCompatActivity {
     }
 
     public void voltarMenuMed1(View view) {
-        this.mudarTela(MenuPaciente.class);
+        this.mudarTela(ListaEspecialidade.class);
     }
 
     @Override
     public void onBackPressed() {
-        this.mudarTela(MenuPaciente.class);
+        this.mudarTela(ListaEspecialidade.class);
     }
 
+    public void marcaConsulta(View view) {
+
+        this.mudarTela(MapsActivity.class);
+    }
 }

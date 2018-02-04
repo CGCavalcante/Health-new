@@ -54,6 +54,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onBackPressed() {
-        this.mudarTela(ListaEspecialidade.class);
+        this.mudarTela(CalendarioDialog.class);
     }
 }
