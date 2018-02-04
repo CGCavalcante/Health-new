@@ -40,5 +40,9 @@ public class ValidaCadastro {
 
     }
 
+    public boolean isDataNoPassado(String data){
+        return (FormataData.dataExiste(data) && FormataData.dataMaiorOuIgualQueAtual(data) && data.length() == TAMANHO_DATA);
+    }
+
 
 }

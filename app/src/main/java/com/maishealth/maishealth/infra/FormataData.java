@@ -159,6 +159,40 @@ import java.util.Date;
             return false;
         }
 
+
+        public static boolean dataMaiorOuIgualQueAtual(String data){
+            SimpleDateFormat dataFormatada = new SimpleDateFormat (DATA_COMUM_GUI);
+            dataFormatada.setLenient (false);
+            //Testa no formato dd/MM/yyyy
+            try {
+                Date dataAtual = new Date();
+                Date dataCliente = dataFormatada.parse(data);
+
+                if(dataAtual.compareTo(dataCliente) <= 0){
+                    return true;
+                }
+            } catch (Exception e) {
+                Log.i("FormataData", e.getMessage());
+            }
+
+            dataFormatada = new SimpleDateFormat (DATA_COMUM_BANCO);
+            dataFormatada.setLenient (false);
+            //Testa no formato yyyyMMdd
+            try {
+                Date dataAtual = new Date();
+                Date dataCliente = dataFormatada.parse(data);
+
+                if(dataAtual.compareTo(dataCliente) <= 0){
+                    return true;
+                }
+            } catch (Exception e) {
+                Log.i("FormataData", e.getMessage());
+            }
+
+            return false;
+        }
+
+
         /**
          * Método para exibir horário/data da criação do post
          * @param data Data de criação do post
@@ -204,4 +238,13 @@ import java.util.Date;
             }
             return tempo;
         }
+
+
+        public String corrigirTamanho(String num) {
+            if (num.length() == 1) {
+                num = "0" + num;
+            }
+            return num;
+        }
+
     }

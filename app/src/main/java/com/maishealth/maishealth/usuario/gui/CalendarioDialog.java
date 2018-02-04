@@ -14,8 +14,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.maishealth.maishealth.R;
+import com.maishealth.maishealth.usuario.negocio.ValidaCadastro;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class CalendarioDialog extends AppCompatActivity {
     private final String[] listaHorarioMedico = {"Manhã", "Tarde", "Noite"};
@@ -23,6 +27,8 @@ public class CalendarioDialog extends AppCompatActivity {
     Button btnClick;
     TextView textData;
     private Spinner spinnerHorarioMedico;
+    private String data;
+    private int dayOfWeek;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +72,22 @@ public class CalendarioDialog extends AppCompatActivity {
         DatePickerDialog dp = new DatePickerDialog(CalendarioDialog.this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                textData.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+                // verifica se o tamanho do dia e do mês é 1, se for acrescenta um zero na frente.
+                // para uniformizar o tamanho da data.
+                String dMonth = Long.toString(dayOfMonth);
+                String mMonth = Long.toString(month + 1);
+                if (dMonth.length()==1){
+                    dMonth = "0" + dMonth;
+                }
+                if (mMonth.length() == 1){
+                    mMonth = "0" + mMonth;
+                }
+                // recupera a data para verificar se é uma data válida.
+                data =  dMonth + "/" + mMonth +"/"+ year;
+                textData.setText(data);
+                // recupera o dia da semana para validar se é um dia comercial.
+                GregorianCalendar date = new GregorianCalendar(year, month, dayOfMonth-1);
+                dayOfWeek =date.get(date.DAY_OF_WEEK);
             }
         }, ano, mes, dia);
 
@@ -90,7 +111,20 @@ public class CalendarioDialog extends AppCompatActivity {
     }
 
     public void marcaConsulta(View view) {
-
-        this.mudarTela(MapsActivity.class);
+        ValidaCadastro validaCadastro = new ValidaCadastro();
+        boolean valido = true;
+        if (!validaCadastro.isDataNoPassado(data)){
+            textData.requestFocus();
+            textData.setError("Data inválida!");
+            valido = false;
+        }
+        if (dayOfWeek == 6 || dayOfWeek == 7){
+            textData.requestFocus();
+            textData.setError("Data inválida!");
+            valido = false;
+        }
+        if (valido){
+            this.mudarTela(MapsActivity.class);
+        }
     }
 }
