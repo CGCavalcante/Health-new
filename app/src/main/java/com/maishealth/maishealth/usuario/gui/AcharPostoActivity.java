@@ -30,7 +30,6 @@ public class AcharPostoActivity extends AppCompatActivity {
     }
 
     public void initMap(View view){this.mudarTela(MapsActivity.class);}
-    
     @Override
     public void onBackPressed() {
         this.mudarTela(MenuPaciente.class);
