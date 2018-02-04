@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.maishealth.maishealth.R;
 import com.maishealth.maishealth.infra.GuiUtil;
 import com.maishealth.maishealth.infra.Mask;
+import com.maishealth.maishealth.usuario.dominio.EnumEspecialidade;
 import com.maishealth.maishealth.usuario.dominio.EnumEstados;
 import com.maishealth.maishealth.usuario.dominio.EnumTipoSangue;
 import com.maishealth.maishealth.usuario.negocio.Servicos;
@@ -24,9 +25,10 @@ public class Cadastrar extends AppCompatActivity {
     private final String[] listaSexo = {"Feminino", "Masculino"};
     private final String[] listaEstados = EnumEstados.enumEstadosLista();
     private final String[] listaTipoSangue = EnumTipoSangue.enumTipoSangueLista();
-    private EditText edtEmail, edtSenha, edtNome, edtCpf, edtNasc, edtCrm, edtEspec;
+    private final String[] listaEspecialidades = EnumEspecialidade.enumEspecialidadeLista();
+    private EditText edtEmail, edtSenha, edtNome, edtCpf, edtNasc, edtCrm;
     private TextView edtRegiao;
-    private Spinner spinnerSexo, spinnerTipoSangue, spinnerRegiao;
+    private Spinner spinnerSexo, spinnerTipoSangue, spinnerRegiao, spinnerEspec;
     private Switch swUsuario;
 
     @Override
@@ -41,11 +43,26 @@ public class Cadastrar extends AppCompatActivity {
         edtCpf.addTextChangedListener(Mask.insert("###.###.###-##", edtCpf));
         edtNasc = findViewById(R.id.edtNasc3);
         edtNasc.addTextChangedListener(Mask.insert("##/##/####", edtNasc));
-        edtEspec = findViewById(R.id.edtEspec3);
+        spinnerEspec = findViewById(R.id.SpnEspecialidade);
         swUsuario = findViewById(R.id.swUsuario);
         edtCrm = findViewById(R.id.edtCRM3);
         edtCrm.addTextChangedListener(Mask.insert("###.###.###.#", edtCrm));
         edtRegiao = findViewById(R.id.textView7);
+
+        spinnerEspec.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, listaEspecialidades));
+        spinnerEspec.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
 
 
         // Checa se o switch usuário é medico ou paciente
@@ -70,14 +87,14 @@ public class Cadastrar extends AppCompatActivity {
                     edtCrm.setVisibility(View.VISIBLE);
                     edtRegiao.setVisibility(View.VISIBLE);
                     spinnerRegiao.setVisibility(View.VISIBLE);
-                    edtEspec.setVisibility(View.VISIBLE);
+                    spinnerEspec.setVisibility(View.VISIBLE);
 
                 } else {
                     swUsuario.setText(R.string.switch_paciente);
                     edtCrm.setVisibility(View.INVISIBLE);
                     edtRegiao.setVisibility(View.INVISIBLE);
                     spinnerRegiao.setVisibility(View.INVISIBLE);
-                    edtEspec.setVisibility(View.INVISIBLE);
+                    spinnerEspec.setVisibility(View.INVISIBLE);
                 }
             }
         });
@@ -121,16 +138,10 @@ public class Cadastrar extends AppCompatActivity {
         String tipoSangue       = (String) spinnerTipoSangue.getSelectedItem();
         String crm              = edtCrm.getText().toString();
         String estado           = (String) spinnerRegiao.getSelectedItem();
-        String especialidade    = edtEspec.getText().toString();
+        String especialidade    = (String) spinnerEspec.getSelectedItem();
 
         ValidaCadastro validaCadastro = new ValidaCadastro();
         boolean valido = true;
-
-        if(validaCadastro.isCampoVazio(especialidade) && swUsuario.isChecked()){
-            edtEspec.requestFocus();
-            edtEspec.setError(getString(R.string.error_invalid_spec));
-            valido = false;
-        }
 
         if(!validaCadastro.isCrmValido(crm) && swUsuario.isChecked()){
             edtCrm.requestFocus();
