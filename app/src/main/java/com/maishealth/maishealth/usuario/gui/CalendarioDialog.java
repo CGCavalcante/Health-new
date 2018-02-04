@@ -9,16 +9,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.maishealth.maishealth.R;
 import com.maishealth.maishealth.usuario.negocio.ValidaCadastro;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class CalendarioDialog extends AppCompatActivity {
@@ -28,11 +25,13 @@ public class CalendarioDialog extends AppCompatActivity {
     TextView textData;
     private Spinner spinnerHorarioMedico;
     private String data;
+    private String horarioMedico;
     private int dayOfWeek;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_calendario_dialog);
 
         spinnerHorarioMedico = findViewById(R.id.editTextInicioHorMed);
@@ -98,6 +97,10 @@ public class CalendarioDialog extends AppCompatActivity {
     private void mudarTela(Class tela) {
         Intent intent = new Intent(this, tela);
         startActivity(intent);
+        intent.putExtra("data", data);
+        intent.putExtra("turno", horarioMedico );
+        startActivity(intent);
+        finish();
         finish();
     }
 
@@ -124,6 +127,7 @@ public class CalendarioDialog extends AppCompatActivity {
             valido = false;
         }
         if (valido){
+            horarioMedico = (String) spinnerHorarioMedico.getSelectedItem();
             this.mudarTela(MapsActivity.class);
         }
     }
