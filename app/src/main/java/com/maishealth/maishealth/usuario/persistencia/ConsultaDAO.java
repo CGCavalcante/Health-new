@@ -125,9 +125,8 @@ public class ConsultaDAO {
         String idPacienteString = Long.toString(idPaciente);
         String idDataHorarioString = Long.toString(idDataHorario);
         String idConsultaString   = Long.toString(idConsulta);
-        String statusConsulta = EnumStatusConsulta.DISPONIVEL.toString();
 
-        String[] argumentos = {idPacienteString, idDataHorarioString, idConsultaString, statusConsulta};
+        String[] argumentos = {idPacienteString, idDataHorarioString, idConsultaString};
 
         return this.getConsulta(query, argumentos);
     }

@@ -18,9 +18,9 @@ public class DetalhesMedico extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes_medico);
 
-        fotoMedico = (ImageView) findViewById(R.id.fotoMedico);
-        nomeMedico = (TextView) findViewById(R.id.nomeMedico);
-        especMedico = (TextView) findViewById(R.id.especMedico);
+        fotoMedico = findViewById(R.id.fotoMedico);
+        nomeMedico = findViewById(R.id.nomeMedico);
+        especMedico = findViewById(R.id.especMedico);
 
         DadosMedico obj = (DadosMedico) getIntent().getExtras().getSerializable("objeto");
 

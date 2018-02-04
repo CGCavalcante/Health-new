@@ -38,8 +38,8 @@ public class CalendarioDialog extends AppCompatActivity {
         spinnerHorarioMedico = findViewById(R.id.editTextInicioHorMed);
         btnConfirmarConsultas = findViewById(R.id.bt_confirmar_hor_montado_med);
 
-        btnClick = (Button) findViewById(R.id.btndata);
-        textData = (TextView) findViewById(R.id.data);
+        btnClick = findViewById(R.id.btndata);
+        textData = findViewById(R.id.data);
 
         btnClick.setOnClickListener(new View.OnClickListener() {
             @Override
