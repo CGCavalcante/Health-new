@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import com.maishealth.maishealth.infra.DataBase;
 import com.maishealth.maishealth.usuario.dominio.Medico;
 
+import java.util.ArrayList;
+
 public class MedicoDAO {
     private SQLiteDatabase liteDatabase;
     private DataBase dataBaseHelper;
@@ -150,5 +152,49 @@ public class MedicoDAO {
         String[] argumentos = {idString};
 
         return this.getMedico(query, argumentos);
+    }
+    public ArrayList<Medico>getMedicoByEspecialidade(String especialidade){
+        liteDatabase = dataBaseHelper.getReadableDatabase();
+        ArrayList<Medico> listaMedicos = new ArrayList<>();
+
+        String query = "SELECT * FROM " + DataBase.TABELA_MEDICO +
+                        " WHERE " + DataBase.ESPECIALIDADE + " LIKE ?" +
+                        " ORDER BY " + DataBase.ID_MEDICO + " DESC";
+        String[] argumentos = {especialidade};
+
+        Cursor cursor = liteDatabase.rawQuery(query, argumentos);
+
+        String colunaIdMedico = DataBase.ID_MEDICO;
+        int indexColunaIdMedico = cursor.getColumnIndex(colunaIdMedico);
+        long idMedico  = cursor.getInt(indexColunaIdMedico);
+
+        String colunaCRM = DataBase.CRM;
+        int indexColunaCRM = cursor.getColumnIndex(colunaCRM);
+        String crm = cursor.getString(indexColunaCRM);
+
+        String colunaEstado = DataBase.ESTADO;
+        int indexColunaEstado = cursor.getColumnIndex(colunaEstado);
+        String estado = cursor.getString(indexColunaEstado);
+
+        String colunaIdUsuario = DataBase.ID_EST_USUARIO_PE;
+        int indexColunaIdUsuario = cursor.getColumnIndex(colunaIdUsuario);
+        long idUsuario = cursor.getInt(indexColunaIdUsuario);
+
+
+        while (cursor.moveToNext()) {
+            Medico medico = new Medico();
+            medico.setId(idMedico);
+            medico.setCrm(crm);
+            medico.setEstado(estado);
+            medico.setEspecialidade(especialidade);
+            medico.setIdUsuario(idUsuario);
+            listaMedicos.add(medico);
+
+        }
+        cursor.close();
+        liteDatabase.close();
+
+        return listaMedicos;
+
     }
 }

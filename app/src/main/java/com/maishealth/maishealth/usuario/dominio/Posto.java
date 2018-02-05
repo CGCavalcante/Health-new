@@ -4,6 +4,7 @@ public class Posto {
     private long id;
     private String nome;
     private String local;
+    private long idUsuario;
 
     public long getId() {
         return id;
@@ -27,5 +28,13 @@ public class Posto {
 
     public void setLocal(String local) {
         this.local = local;
+    }
+
+    public long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 }
