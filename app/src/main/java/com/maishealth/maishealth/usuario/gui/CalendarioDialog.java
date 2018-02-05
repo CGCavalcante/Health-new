@@ -2,6 +2,8 @@ package com.maishealth.maishealth.usuario.gui;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.maishealth.maishealth.R;
 import com.maishealth.maishealth.usuario.negocio.ValidaCadastro;
@@ -28,6 +31,7 @@ public class CalendarioDialog extends AppCompatActivity {
     private String horarioMedico;
     private int dayOfWeek;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +48,14 @@ public class CalendarioDialog extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 pegarData();
+            }
+        });
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.materialup_toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
 
