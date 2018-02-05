@@ -45,7 +45,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.128" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView2"
         android:layout_width="115dp"
         android:layout_height="107dp"
@@ -58,7 +58,7 @@
         app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_imagem_medico" />
+        app:srcCompat="@drawable/user_avatar" />
 
     <ImageView
         android:id="@+id/bt_meucalend"
