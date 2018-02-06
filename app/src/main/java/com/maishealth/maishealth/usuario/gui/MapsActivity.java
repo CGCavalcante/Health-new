@@ -48,7 +48,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Cria um marcador customizavel e seta sua posição
 
          mMap.addMarker(new MarkerOptions()
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.drugstore_icon)).
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.drugstore_icon))
                 .position(new LatLng(-32, -151))
                 .title("Posto de saude"));
 
