@@ -11,13 +11,17 @@ import com.maishealth.maishealth.R;
 import com.maishealth.maishealth.infra.GuiUtil;
 import com.maishealth.maishealth.usuario.dominio.Adaptador;
 import com.maishealth.maishealth.usuario.dominio.DadosMedico;
+import com.maishealth.maishealth.usuario.dominio.Medico;
+import com.maishealth.maishealth.usuario.negocio.ServicosMedico;
 import com.maishealth.maishealth.usuario.negocio.ServicosPosto;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ListaMedicos extends AppCompatActivity {
-
+    private String especialidade;
+    private String data;
+    private String turno;
     ListView listaMedicos;
     ArrayList<DadosMedico> lista;
 
@@ -27,8 +31,13 @@ public class ListaMedicos extends AppCompatActivity {
         setContentView(R.layout.activity_lista_medicos);
 
         listaMedicos = (ListView) findViewById(R.id.lstMedicos);
+        Intent intent = getIntent();
+        especialidade = intent.getStringExtra("espec");
+        data = intent.getStringExtra("data");
+        turno = intent.getStringExtra("turno");
 
         lista = preencher();
+
 
 
         Adaptador adaptador = new Adaptador(getApplication(), lista);
@@ -43,7 +52,11 @@ public class ListaMedicos extends AppCompatActivity {
                 GuiUtil.myToast(getApplicationContext(), "Especialidade:" + obj.getEspecialidade());
 
                 Intent passar = new Intent(getApplicationContext(), DetalhesMedico.class);
-                passar.putExtra("objeto", (Serializable) obj);
+                //passar.putExtra("objeto", (Serializable) obj);
+                String idMedico = Long.toString( obj.getIdmedico());
+                passar.putExtra("idmedico", idMedico);
+                passar.putExtra("data1", data);
+                passar.putExtra("turno1", turno );
                 startActivity(passar);
 
             }
@@ -52,11 +65,14 @@ public class ListaMedicos extends AppCompatActivity {
     }
 
     private ArrayList<DadosMedico> preencher() {
+        ServicosMedico servicosMedico = new ServicosMedico(getApplicationContext());
         ServicosPosto servicosPosto = new ServicosPosto(getApplicationContext());
 
-        ArrayList<DadosMedico> dados = servicosPosto.returnNomeMedicos(1);
+        //ArrayList<DadosMedico> dados = servicosPosto.returnNomeMedicos(1);
+        ArrayList<Medico> medicos = servicosMedico.getMedicoByEspec(especialidade);
+        ArrayList<DadosMedico> dados2 = servicosPosto.medicosEspec(especialidade);
 
-        return dados;
+        return dados2;
     }
 
     private void mudarTela(Class tela) {

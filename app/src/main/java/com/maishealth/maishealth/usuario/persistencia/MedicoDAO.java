@@ -9,7 +9,7 @@ import com.maishealth.maishealth.infra.DataBase;
 import com.maishealth.maishealth.usuario.dominio.Medico;
 
 import java.util.ArrayList;
-
+@SuppressWarnings("FieldCanBeLocal")
 public class MedicoDAO {
     private SQLiteDatabase liteDatabase;
     private DataBase dataBaseHelper;
@@ -166,9 +166,8 @@ public class MedicoDAO {
 
         String colunaIdMedico = DataBase.ID_MEDICO;
         int indexColunaIdMedico = cursor.getColumnIndex(colunaIdMedico);
-        long idMedico  = cursor.getInt(indexColunaIdMedico);
 
-        String colunaCRM = DataBase.CRM;
+        /*String colunaCRM = DataBase.CRM;
         int indexColunaCRM = cursor.getColumnIndex(colunaCRM);
         String crm = cursor.getString(indexColunaCRM);
 
@@ -178,16 +177,13 @@ public class MedicoDAO {
 
         String colunaIdUsuario = DataBase.ID_EST_USUARIO_PE;
         int indexColunaIdUsuario = cursor.getColumnIndex(colunaIdUsuario);
-        long idUsuario = cursor.getInt(indexColunaIdUsuario);
+        long idUsuario = cursor.getInt(indexColunaIdUsuario);*/
 
+        Medico medico;
 
         while (cursor.moveToNext()) {
-            Medico medico = new Medico();
-            medico.setId(idMedico);
-            medico.setCrm(crm);
-            medico.setEstado(estado);
-            medico.setEspecialidade(especialidade);
-            medico.setIdUsuario(idUsuario);
+            long idMedico = cursor.getInt(indexColunaIdMedico);
+            medico = getMedico(idMedico);
             listaMedicos.add(medico);
 
         }

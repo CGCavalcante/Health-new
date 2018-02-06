@@ -43,8 +43,8 @@ public class ConstantePopularBanco {
             "('111.100.',1,'PE','Clínico Geral')," +
             "('111.101.',2,'AC','Pediatria')," +
             "('111.102.',3,'RJ','Clínico Geral')," +
-            "('111.103.',4,'SP','Cadiologia')," +
-            "('111.104.',5,'BA','Cadiologia');";
+            "('111.103.',4,'SP','Cardiologia')," +
+            "('111.104.',5,'BA','Cardiologia');";
 
     public static final String INSERIR_MEDICAMENTO = "INSERT INTO 'medicamento' ('nome') VALUES" +
             "('rivotril')," +

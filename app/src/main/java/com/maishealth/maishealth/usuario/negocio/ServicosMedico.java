@@ -11,6 +11,8 @@ import com.maishealth.maishealth.usuario.persistencia.ConsultaDAO;
 import com.maishealth.maishealth.usuario.persistencia.HorarioMedicoDAO;
 import com.maishealth.maishealth.usuario.persistencia.MedicoDAO;
 
+import java.util.ArrayList;
+
 import static com.maishealth.maishealth.infra.ConstanteSharedPreferences.ID_MEDICO_PREFERENCES;
 import static com.maishealth.maishealth.infra.ConstanteSharedPreferences.TITLE_PREFERENCES;
 
@@ -80,5 +82,11 @@ public class ServicosMedico {
             horarioMedico.setDiaSemana(dia);
             atualizarHorario(horarioMedico);
         }
+    }
+
+    public ArrayList<Medico> getMedicoByEspec(String espec){
+        ArrayList<Medico> listaMedicos = new ArrayList<>();
+        listaMedicos = medicoDAO.getMedicoByEspecialidade(espec);
+        return listaMedicos;
     }
 }

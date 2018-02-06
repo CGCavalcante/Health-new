@@ -7,6 +7,7 @@ import com.maishealth.maishealth.R;
 import com.maishealth.maishealth.usuario.dominio.DadosMedico;
 import com.maishealth.maishealth.usuario.dominio.Medico;
 import com.maishealth.maishealth.usuario.dominio.Pessoa;
+import com.maishealth.maishealth.usuario.persistencia.MedicoDAO;
 import com.maishealth.maishealth.usuario.persistencia.MedicoPostoDAO;
 import com.maishealth.maishealth.usuario.persistencia.PessoaDAO;
 import com.maishealth.maishealth.usuario.persistencia.PostoDAO;
@@ -20,10 +21,12 @@ import java.util.ArrayList;
 
 public class ServicosPosto {
     private PessoaDAO pessoaDAO;
+    private MedicoDAO medicoDAO;
     private PostoDAO postoDAO;
     private MedicoPostoDAO medicoPostoDAO;
 
     public ServicosPosto(Context context) {
+        medicoDAO = new MedicoDAO(context);
         postoDAO = new PostoDAO(context);
         medicoPostoDAO = new MedicoPostoDAO(context);
         pessoaDAO = new PessoaDAO(context);
@@ -51,7 +54,7 @@ public class ServicosPosto {
 
     }
 
-    private ArrayList<DadosMedico> nomeEspecMedico(ArrayList<String> nomes, ArrayList<String> especs) {
+    /*private ArrayList<DadosMedico> nomeEspecMedico(ArrayList<String> nomes, ArrayList<String> especs) {
         ArrayList<DadosMedico> nomeEspec = new ArrayList<DadosMedico>();
 
         long tamanho = nomes.size();
@@ -73,6 +76,28 @@ public class ServicosPosto {
 
         ArrayList<DadosMedico> nomeEspec = nomeEspecMedico(pessoasMedico, especMedico);
 
+        return nomeEspec;
+    }*/
+
+    public ArrayList<DadosMedico> medicosEspec(String espec){
+        ArrayList<Medico> medicos = medicoDAO.getMedicoByEspecialidade(espec);
+        ArrayList<String> pessoasMedico = getPessoaByMedico(medicos);
+
+        ArrayList<DadosMedico> nomeEspec = setarDadosMedico(medicos,pessoasMedico);
+
+        return nomeEspec;
+    }
+
+    public ArrayList<DadosMedico> setarDadosMedico(ArrayList<Medico> medicos,ArrayList<String> pessoasMedico){
+        ArrayList<DadosMedico> nomeEspec = new ArrayList<DadosMedico>();
+        long tamanho = medicos.size();
+        for (int i = 0; i < tamanho; i++) {
+            Medico medico = medicos.get(i);
+            String nome = pessoasMedico.get(i);
+            String espec = medico.getEspecialidade();
+
+            nomeEspec.add(new DadosMedico(i + 1, nome, espec, R.drawable.user_avatar,medico.getId()));
+        }
         return nomeEspec;
     }
 

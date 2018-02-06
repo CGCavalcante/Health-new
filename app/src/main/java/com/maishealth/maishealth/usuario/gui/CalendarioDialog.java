@@ -27,12 +27,16 @@ public class CalendarioDialog extends AppCompatActivity {
     private String data;
     private String horarioMedico;
     private int dayOfWeek;
+    private String espec;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_calendario_dialog);
+
+        Intent intent = getIntent();
+        espec = intent.getStringExtra("espec");
 
         spinnerHorarioMedico = findViewById(R.id.editTextInicioHorMed);
         btnConfirmarConsultas = findViewById(R.id.bt_confirmar_hor_montado_med);
@@ -96,11 +100,10 @@ public class CalendarioDialog extends AppCompatActivity {
 
     private void mudarTela(Class tela) {
         Intent intent = new Intent(this, tela);
-        startActivity(intent);
         intent.putExtra("data", data);
         intent.putExtra("turno", horarioMedico );
+        intent.putExtra("espec", espec);
         startActivity(intent);
-        finish();
         finish();
     }
 
@@ -128,7 +131,7 @@ public class CalendarioDialog extends AppCompatActivity {
         }
         if (valido){
             horarioMedico = (String) spinnerHorarioMedico.getSelectedItem();
-            this.mudarTela(MapsActivity.class);
+            this.mudarTela(ListaMedicos.class);
         }
     }
 }
