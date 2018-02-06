@@ -7,16 +7,26 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.maishealth.maishealth.R;
-import com.maishealth.maishealth.usuario.dominio.DadosMedico;
+import com.maishealth.maishealth.infra.GuiUtil;
+import com.maishealth.maishealth.usuario.dominio.Medico;
+import com.maishealth.maishealth.usuario.dominio.Pessoa;
+import com.maishealth.maishealth.usuario.negocio.ServicosMedico;
+import com.maishealth.maishealth.usuario.negocio.ServicosPessoa;
 
 public class DetalhesMedico extends AppCompatActivity {
-    ImageView fotoMedico;
-    TextView nomeMedico;
-    TextView especMedico;
-    TextView dataCons;
-    TextView turnoCons;
-    private  String data;
-    private  String turno;
+    private ImageView fotoMedico;
+    private TextView nomeMedico;
+    private TextView especMedico;
+    private TextView dataCons;
+    private TextView turnoCons;
+    private String data;
+    private String turno;
+    private String idmedicoS;
+    /*private Medico medico;
+    private Pessoa pessoaMedico;
+
+    private ServicosMedico servicosMedico = new ServicosMedico(getApplicationContext());
+    private ServicosPessoa servicosPessoa = new ServicosPessoa(getApplicationContext());*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,16 +36,27 @@ public class DetalhesMedico extends AppCompatActivity {
         fotoMedico = findViewById(R.id.fotoMedico);
         nomeMedico = findViewById(R.id.nomeMedico);
         especMedico =  findViewById(R.id.especMedico);
-        dataCons =  findViewById(R.id.dataCons);
-        turnoCons = findViewById(R.id.turnoCons);
+        dataCons = findViewById(R.id.datacons);
+        turnoCons = findViewById(R.id.turnocons);
 
-        Intent intent = new Intent();
+
+        Intent intent = getIntent();
         data =  intent.getStringExtra("data1");
         turno =  intent.getStringExtra("turno1");
-        //String idmedicoS = intent.getStringExtra ("idmedico" );
-        //long idMedico = Integer.parseInt(idmedicoS);
+        idmedicoS = intent.getStringExtra("idmedico");
+        long idmedico = Long.parseLong(idmedicoS);
+
+        /*medico = servicosMedico.getMedico(idmedico);
+        pessoaMedico = servicosPessoa.searchPessoaByIdUsuario(medico.getIdUsuario());*/
+
+
+        GuiUtil.myToast(getApplicationContext(), "data" + data + "\nturno" + turno + "\nidmedico" + idmedico);
+
         dataCons.setText(data);
         turnoCons.setText(turno);
+
+        /*nomeMedico.setText(pessoaMedico.getNome());
+        especMedico.setText(medico.getEspecialidade());*/
 
 
         /*DadosMedico obj = (DadosMedico) getIntent().getExtras().getSerializable("objeto");

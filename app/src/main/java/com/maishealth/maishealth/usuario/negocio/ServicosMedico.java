@@ -89,4 +89,9 @@ public class ServicosMedico {
         listaMedicos = medicoDAO.getMedicoByEspecialidade(espec);
         return listaMedicos;
     }
+
+    public Medico getMedico(long id) {
+        Medico medico = medicoDAO.getMedico(id);
+        return medico;
+    }
 }

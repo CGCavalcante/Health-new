@@ -19,11 +19,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ListaMedicos extends AppCompatActivity {
+    ListView listaMedicos;
+    ArrayList<DadosMedico> lista;
     private String especialidade;
     private String data;
     private String turno;
-    ListView listaMedicos;
-    ArrayList<DadosMedico> lista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +36,7 @@ public class ListaMedicos extends AppCompatActivity {
         data = intent.getStringExtra("data");
         turno = intent.getStringExtra("turno");
 
-        lista = preencher();
-
-
+        lista = preencher(especialidade);
 
         Adaptador adaptador = new Adaptador(getApplication(), lista);
 
@@ -49,7 +47,6 @@ public class ListaMedicos extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 DadosMedico obj = (DadosMedico) parent.getItemAtPosition(position);
 
-                GuiUtil.myToast(getApplicationContext(), "Especialidade:" + obj.getEspecialidade());
 
                 Intent passar = new Intent(getApplicationContext(), DetalhesMedico.class);
                 //passar.putExtra("objeto", (Serializable) obj);
@@ -57,22 +54,19 @@ public class ListaMedicos extends AppCompatActivity {
                 passar.putExtra("idmedico", idMedico);
                 passar.putExtra("data1", data);
                 passar.putExtra("turno1", turno );
-                startActivity(passar);
 
+                GuiUtil.myToast(getApplicationContext(), "data" + data + "\nturno" + turno);
+
+                startActivity(passar);
             }
         });
 
     }
 
-    private ArrayList<DadosMedico> preencher() {
-        ServicosMedico servicosMedico = new ServicosMedico(getApplicationContext());
+    private ArrayList<DadosMedico> preencher(String espec) {
         ServicosPosto servicosPosto = new ServicosPosto(getApplicationContext());
 
-        //ArrayList<DadosMedico> dados = servicosPosto.returnNomeMedicos(1);
-        ArrayList<Medico> medicos = servicosMedico.getMedicoByEspec(especialidade);
-        ArrayList<DadosMedico> dados2 = servicosPosto.medicosEspec(especialidade);
-
-        return dados2;
+        return servicosPosto.medicosEspec(espec);
     }
 
     private void mudarTela(Class tela) {

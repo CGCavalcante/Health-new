@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.maishealth.maishealth.R;
+import com.maishealth.maishealth.infra.GuiUtil;
 import com.maishealth.maishealth.usuario.negocio.ValidaCadastro;
 
 import java.util.Calendar;
@@ -25,7 +26,7 @@ public class CalendarioDialog extends AppCompatActivity {
     TextView textData;
     private Spinner spinnerHorarioMedico;
     private String data;
-    private String horarioMedico;
+    private String turno;
     private int dayOfWeek;
     private String espec;
 
@@ -101,8 +102,9 @@ public class CalendarioDialog extends AppCompatActivity {
     private void mudarTela(Class tela) {
         Intent intent = new Intent(this, tela);
         intent.putExtra("data", data);
-        intent.putExtra("turno", horarioMedico );
+        intent.putExtra("turno", turno);
         intent.putExtra("espec", espec);
+
         startActivity(intent);
         finish();
     }
@@ -130,7 +132,7 @@ public class CalendarioDialog extends AppCompatActivity {
             valido = false;
         }
         if (valido){
-            horarioMedico = (String) spinnerHorarioMedico.getSelectedItem();
+            turno = (String) spinnerHorarioMedico.getSelectedItem();
             this.mudarTela(ListaMedicos.class);
         }
     }

@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.maishealth.maishealth.R;
+import com.maishealth.maishealth.infra.GuiUtil;
 import com.maishealth.maishealth.usuario.dominio.EnumEspecialidade;
 
 public class ListaEspecialidade extends AppCompatActivity {
