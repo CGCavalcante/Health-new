@@ -71,8 +71,13 @@ public class MenuPaciente extends AppCompatActivity {
     }
 
     private void mudarTela(Class tela){
-        Intent intent=new Intent(MenuPaciente.this, tela);
+        Intent intent=new Intent(this, tela);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.mudarTela(LoginActivity.class);
     }
 }
