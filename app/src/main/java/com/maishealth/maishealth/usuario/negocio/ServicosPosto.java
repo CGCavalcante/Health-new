@@ -15,10 +15,6 @@ import com.maishealth.maishealth.usuario.persistencia.UsuarioDAO;
 
 import java.util.ArrayList;
 
-/**
- * Created by Wenderson de Souza on 31/01/2018.
- */
-
 public class ServicosPosto {
     private PessoaDAO pessoaDAO;
     private MedicoDAO medicoDAO;
@@ -33,7 +29,7 @@ public class ServicosPosto {
     }
 
     private ArrayList<String> getPessoaByMedico(ArrayList<Medico> medicos) {
-        ArrayList<String> pessoasMedico = new ArrayList<String>();
+        ArrayList<String> pessoasMedico = new ArrayList<>();
         for (Medico medico :medicos){
             long idUsuario = medico.getIdUsuario();
             Pessoa pessoa = pessoaDAO.getPessoaByIdUsuario(idUsuario);
@@ -44,7 +40,7 @@ public class ServicosPosto {
     }
 
     private ArrayList<String> getEspecByMedico(ArrayList<Medico> medicos) {
-        ArrayList<String> especMedico = new ArrayList<String>();
+        ArrayList<String> especMedico = new ArrayList<>();
         for (Medico medico : medicos){
             String espec = medico.getEspecialidade();
             especMedico.add(espec);
@@ -83,13 +79,11 @@ public class ServicosPosto {
         ArrayList<Medico> medicos = medicoDAO.getMedicoByEspecialidade(espec);
         ArrayList<String> pessoasMedico = getPessoaByMedico(medicos);
 
-        ArrayList<DadosMedico> nomeEspec = setarDadosMedico(medicos,pessoasMedico);
-
-        return nomeEspec;
+        return setarDadosMedico(medicos,pessoasMedico);
     }
 
     public ArrayList<DadosMedico> setarDadosMedico(ArrayList<Medico> medicos,ArrayList<String> pessoasMedico){
-        ArrayList<DadosMedico> nomeEspec = new ArrayList<DadosMedico>();
+        ArrayList<DadosMedico> nomeEspec = new ArrayList<>();
         long tamanho = medicos.size();
         for (int i = 0; i < tamanho; i++) {
             Medico medico = medicos.get(i);

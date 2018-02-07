@@ -30,7 +30,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="28dp"
-        android:text="Nome"
+        android:text="@string/nome"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +43,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
-        android:text="Especialidade"
+        android:text="@string/especialidade"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
-        android:text="CRM"
+        android:text="@string/prompt_crm_tela_med"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtEspecMedico" />
@@ -76,7 +76,7 @@
             android:id="@+id/datacons"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:text="Data"
+            android:text="@string/data"
             android:textSize="20dp"
             tools:layout_editor_absoluteX="56dp"
             tools:layout_editor_absoluteY="423dp" />
@@ -85,7 +85,7 @@
             android:id="@+id/turnocons"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:text="Turno"
+            android:text="@string/turnos"
             android:textSize="20dp"
             tools:layout_editor_absoluteX="253dp"
             tools:layout_editor_absoluteY="423dp" />
@@ -98,7 +98,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Confirmar"
+        android:text="@string/button_confirmar_hor_mont_med"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.284" />
@@ -109,7 +109,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="76dp"
-        android:text="Cancelar"
+        android:text="@string/cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

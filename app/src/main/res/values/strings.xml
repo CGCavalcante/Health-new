@@ -25,7 +25,7 @@
     <string name="button_atualizar_perfil_med">Atualizar</string>
     <string name="button_marcar_sint">Marcar</string>
     <string name="button_marc_voltar_menu">Voltar</string>
-    <string name="button_confirma_consulta">Confirma</string>
+    <string name="button_confirma_consulta">Confirmar</string>
     <string name="button_cancela_consulta">Cancela</string>
     <string name="button_atualizar_cons">Atualizar</string>
     <string name="button_atualizar_perfil_pac">Atualizar</string>
@@ -81,7 +81,7 @@
     <string name="prompt_data">dd/mm/aaaa</string>
     <string name="prompt_crm">CRM</string>
     <string name="prompt_especialidade">Especialidade</string>
-    <string name="prompt_nome_tela_Pac"></string>
+    <string name="prompt_nome_tela_Pac" />
     <string name="prompt_nome_tela_med">Nome</string>
     <string name="prompt_email_tela_med">Email</string>
     <string name="prompt_senha_tela_med">Senha</string>
@@ -189,6 +189,21 @@
     <string name="voltar">Voltar</string>
     <string name="turnos">Turnos</string>
     <string name="title_activity_maps">Localização de postos</string>
+    <string name= "pac">Pac</string>
+    <string name= "med">Med</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="consultas_do_dia">Consultas do Dia</string>
+    <string name="gerar_consultas">Gerar Consultas</string>
+    <string name="unidades_proximas">Unidades Proximas</string>
+    <string name="dia">Dia</string>
+    <string name="manh">Manhã</string>
+    <string name="quantidade_de_vagas">Quantidade de Vagas</string>
+    <string name="tarde">Tarde</string>
+    <string name="quantidade_de_vagas_tarde">Quantidade de Vagas Tarde</string>
+    <string name="noite">Noite</string>
+    <string name="quantidade_de_vagas_noite">Quantidade de Vagas Noite</string>
+    <string name="turno">Turno</string>
+    <string name="avaliacao">Avaliacao</string>
 
 
 </resources>

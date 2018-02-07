@@ -14,6 +14,7 @@ import com.maishealth.maishealth.usuario.negocio.ServicosMedico;
 import com.maishealth.maishealth.usuario.negocio.ServicosPessoa;
 
 public class DetalhesMedico extends AppCompatActivity {
+
     private ImageView fotoMedico;
     private TextView nomeMedico;
     private TextView especMedico;
@@ -24,7 +25,9 @@ public class DetalhesMedico extends AppCompatActivity {
     private String turno;
     private String idmedicoS;
     private String diaSemana;
+
     private Medico medico;
+
     private Pessoa pessoaMedico;
     private String nomeMedicoString;
     private String especString;
@@ -37,21 +40,35 @@ public class DetalhesMedico extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes_medico);
 
+
         fotoMedico = findViewById(R.id.fotoMedico);
         //nomeMedico = findViewById(R.id.nomeMedico);
         //especMedico =  findViewById(R.id.especMedico);
         dataCons = findViewById(R.id.datacons);
         turnoCons = findViewById(R.id.turnocons);
-        nomeMedico  = findViewById(R.id.txtNomeMedico);
+        nomeMedico = findViewById(R.id.txtNomeMedico);
         especMedico = findViewById(R.id.txtEspecMedico);
         crm = findViewById(R.id.idTxtCrm);
 
 
         Intent intent = getIntent();
-        data =  intent.getStringExtra("data1");
-        turno =  intent.getStringExtra("turno1");
+        data = intent.getStringExtra("data1");
+        turno = intent.getStringExtra("turno1");
         idmedicoS = intent.getStringExtra("idmedico");
         diaSemana = intent.getStringExtra("diaSemana1");
+
+        ImageView fotoMedico = findViewById(R.id.fotoMedico);
+        TextView nomeMedico = findViewById(R.id.nomeMedico);
+        TextView especMedico = findViewById(R.id.especMedico);
+        TextView dataCons = findViewById(R.id.datacons);
+        TextView turnoCons = findViewById(R.id.turnocons);
+
+
+        intent = getIntent();
+        String data = intent.getStringExtra("data1");
+        String turno = intent.getStringExtra("turno1");
+        String idmedicoS = intent.getStringExtra("idmedico");
+
         long idmedico = Long.parseLong(idmedicoS);
 
         servicosMedico = new ServicosMedico(getApplicationContext());
@@ -59,9 +76,9 @@ public class DetalhesMedico extends AppCompatActivity {
 
         medico = servicosMedico.getMedico(idmedico);
         pessoaMedico = servicosPessoa.searchPessoaByIdUsuario(medico.getIdUsuario());
-        nomeMedicoString = pessoaMedico.getNome().toString();
-        especString = medico.getEspecialidade().toString();
-        crmString = medico.getCrm().toString();
+        nomeMedicoString = pessoaMedico.getNome();
+        especString = medico.getEspecialidade();
+        crmString = medico.getCrm();
 
         GuiUtil.myToast(getApplicationContext(), "data" + data + "\nturno" + turno + "\nidmedico" + idmedico + "\ndiaSemana " + diaSemana);
 

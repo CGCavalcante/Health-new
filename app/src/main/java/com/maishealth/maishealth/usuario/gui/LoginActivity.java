@@ -30,7 +30,6 @@ public class LoginActivity extends AppCompatActivity {
     public static final String EM_CONSTRUCAO = "Em construcao";
     private EditText edtEmailLogin, edtSenhaLogin;
     private SharedPreferences sharedPreferences;
-    private ImageButton btnEmergencia;
 
 
     @Override
@@ -41,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(TITLE_PREFERENCES, MODE_PRIVATE);
         edtEmailLogin = findViewById(R.id.emailx);
         edtSenhaLogin = findViewById(R.id.senhax);
-        btnEmergencia = findViewById(R.id.bt_emerg_2);
+        ImageButton btnEmergencia = findViewById(R.id.bt_emerg_2);
 
         btnEmergencia.setOnClickListener(new View.OnClickListener() {
             @Override

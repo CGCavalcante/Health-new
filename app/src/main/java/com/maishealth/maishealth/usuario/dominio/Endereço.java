@@ -1,9 +1,5 @@
 package com.maishealth.maishealth.usuario.dominio;
 
-/**
- * Created by Wenderson de Souza on 27/01/2018.
- */
-
 public class Endereço {
     private long id;
     private String estado;

@@ -31,7 +31,7 @@ public class ListaMedicos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_medicos);
 
-        listaMedicos = (ListView) findViewById(R.id.lstMedicos);
+        listaMedicos = findViewById(R.id.lstMedicos);
         Intent intent = getIntent();
         especialidade = intent.getStringExtra("espec");
         data = intent.getStringExtra("data");

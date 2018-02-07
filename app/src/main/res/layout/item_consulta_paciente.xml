@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Medico"
+                android:text="@string/switch_medico"
                 android:textColor="#000000"
                 android:textSize="20dp" />
 
@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="Especialidade"
+                android:text="@string/especialidade"
                 android:textColor="#000000"
                 android:textSize="15dp" />
 
@@ -52,7 +52,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Data"
+                    android:text="@string/data"
                     android:textColor="#000000"
                     android:textSize="15dp" />
 
@@ -61,7 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Turno"
+                    android:text="@string/turno"
                     android:textColor="#000000"
                     android:textSize="15dp" />
             </LinearLayout>

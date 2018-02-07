@@ -20,10 +20,10 @@ public class ListaEspecialidade extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_especialidade);
 
-        listaEspec = (ListView) findViewById(R.id.lstEspec);
+        listaEspec = findViewById(R.id.lstEspec);
         String[] especs = EnumEspecialidade.enumEspecialidadeLista();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, especs);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, especs);
 
         listaEspec.setAdapter(adapter);
 

@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
-                android:text="Nome"
+                android:text="@string/nome"
                 android:textColor="#000000"
                 android:textSize="20dp" />
 
@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:text="Especialidade"
+                android:text="@string/especialidade"
                 android:textColor="#000000"
                 android:textSize="20dp" />
 
@@ -47,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:text="Avaliacao"
+                android:text="@string/avaliacao"
                 android:textColor="#000000"
                 android:textSize="20dp" />
 

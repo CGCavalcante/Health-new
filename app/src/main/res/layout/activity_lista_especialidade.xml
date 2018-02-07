@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:text="Especialidades"
+            android:text="@string/especialidade"
             android:textSize="25dp" />
 
         <ListView
@@ -33,7 +33,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:onClick="voltarPac"
-            android:text="Voltar" />
+            android:text="@string/voltar" />
     </LinearLayout>
 
 

@@ -85,13 +85,12 @@ public class ServicosMedico {
     }
 
     public ArrayList<Medico> getMedicoByEspec(String espec){
-        ArrayList<Medico> listaMedicos = new ArrayList<>();
+        ArrayList<Medico> listaMedicos;
         listaMedicos = medicoDAO.getMedicoByEspecialidade(espec);
         return listaMedicos;
     }
 
     public Medico getMedico(long id) {
-        Medico medico = medicoDAO.getMedico(id);
-        return medico;
+        return medicoDAO.getMedico(id);
     }
 }

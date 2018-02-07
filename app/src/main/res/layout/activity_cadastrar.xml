@@ -34,8 +34,8 @@
                     android:layout_marginBottom="@dimen/margin_bottom_mini_label"
                     android:text="@string/switch_paciente"
                     android:textColorLink="#fa0202"
-                    android:textOff="Pac"
-                    android:textOn="Med"
+                    android:textOff="@string/pac"
+                    android:textOn="@string/med"
                     tools:text="Médico" />
 
                 <View

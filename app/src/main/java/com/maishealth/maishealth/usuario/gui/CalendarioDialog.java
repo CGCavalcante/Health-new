@@ -43,8 +43,8 @@ public class CalendarioDialog extends AppCompatActivity {
         spinnerHorarioMedico = findViewById(R.id.editTextInicioHorMed);
         btnConfirmarConsultas = findViewById(R.id.bt_confirmar_hor_montado_med);
 
-        btnClick = (Button) findViewById(R.id.btndata);
-        textData = (TextView) findViewById(R.id.data);
+        btnClick = findViewById(R.id.btndata);
+        textData = findViewById(R.id.data);
 
         btnClick.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +92,7 @@ public class CalendarioDialog extends AppCompatActivity {
                 textData.setText(data);
                 // recupera o dia da semana para validar se é um dia comercial.
                 GregorianCalendar date = new GregorianCalendar(year, month, dayOfMonth-1);
-                dayOfWeek =date.get(date.DAY_OF_WEEK);
+                dayOfWeek =date.get(Calendar.DAY_OF_WEEK);
 
                 if (dayOfWeek == 1) {
                     diaSemana = "Segunda";

@@ -26,6 +26,6 @@
         app:showAsAction="always" />
     <item
         android:orderInCategory="101"
-        android:title="Sair" />
+        android:title="@string/button_sair" />
 
 </menu>
