@@ -29,6 +29,7 @@ public class CalendarioDialog extends AppCompatActivity {
     private String turno;
     private int dayOfWeek;
     private String espec;
+    private String diaSemana;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +93,24 @@ public class CalendarioDialog extends AppCompatActivity {
                 // recupera o dia da semana para validar se é um dia comercial.
                 GregorianCalendar date = new GregorianCalendar(year, month, dayOfMonth-1);
                 dayOfWeek =date.get(date.DAY_OF_WEEK);
+
+                if (dayOfWeek == 1) {
+                    diaSemana = "Segunda";
+                }
+                if (dayOfWeek == 2) {
+                    diaSemana = "Terca";
+                }
+                if (dayOfWeek == 3) {
+                    diaSemana = "Quarta";
+                }
+                if (dayOfWeek == 4) {
+                    diaSemana = "Quinta";
+                }
+                if (dayOfWeek == 5){
+                        diaSemana = "Sexta";
+                }
+
+
             }
         }, ano, mes, dia);
 
@@ -104,6 +123,7 @@ public class CalendarioDialog extends AppCompatActivity {
         intent.putExtra("data", data);
         intent.putExtra("turno", turno);
         intent.putExtra("espec", espec);
+        intent.putExtra("diaS", diaSemana);
 
         startActivity(intent);
         finish();

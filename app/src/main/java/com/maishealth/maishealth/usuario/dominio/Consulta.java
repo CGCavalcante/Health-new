@@ -3,9 +3,11 @@ package com.maishealth.maishealth.usuario.dominio;
 
 public class Consulta {
     private long idPaciente;
-    private long id_data_horario;
+    private long idMedico;
     private String status;
     private long id;
+    private String data;
+    private String turno;
 
     public long getIdPaciente() {
         return idPaciente;
@@ -15,12 +17,12 @@ public class Consulta {
         this.idPaciente = idPaciente;
     }
 
-    public long getId_data_horario() {
-        return id_data_horario;
+    public long getIdMedico() {
+        return idMedico;
     }
 
-    public void setId_data_horario(long id_data_horario) {
-        this.id_data_horario = id_data_horario;
+    public void setIdMedico(long idMedico) {
+        this.idMedico = idMedico;
     }
 
     public String getStatus() {
@@ -34,4 +36,21 @@ public class Consulta {
     public long getId() { return id;}
 
     public void setId(long id) { this.id = id; }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getTurno() {
+        return turno;
+    }
+
+    public void setTurno(String turno) {
+        this.turno = turno;
+    }
 }
+

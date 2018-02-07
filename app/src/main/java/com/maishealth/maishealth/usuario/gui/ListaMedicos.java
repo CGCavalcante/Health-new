@@ -24,6 +24,7 @@ public class ListaMedicos extends AppCompatActivity {
     private String especialidade;
     private String data;
     private String turno;
+    private String diaSemana;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class ListaMedicos extends AppCompatActivity {
         especialidade = intent.getStringExtra("espec");
         data = intent.getStringExtra("data");
         turno = intent.getStringExtra("turno");
+        diaSemana = intent.getStringExtra("diaS");
 
         lista = preencher(especialidade);
 
@@ -54,8 +56,10 @@ public class ListaMedicos extends AppCompatActivity {
                 passar.putExtra("idmedico", idMedico);
                 passar.putExtra("data1", data);
                 passar.putExtra("turno1", turno );
+                passar.putExtra("diaSemana1", diaSemana);
 
-                GuiUtil.myToast(getApplicationContext(), "data" + data + "\nturno" + turno);
+
+                GuiUtil.myToast(getApplicationContext(), "data" + data + "\nturno" + turno + "\n diaSemana " + diaSemana );
 
                 startActivity(passar);
             }

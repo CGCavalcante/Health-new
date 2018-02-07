@@ -19,14 +19,18 @@ public class DetalhesMedico extends AppCompatActivity {
     private TextView especMedico;
     private TextView dataCons;
     private TextView turnoCons;
+    private TextView crm;
     private String data;
     private String turno;
     private String idmedicoS;
-    /*private Medico medico;
+    private String diaSemana;
+    private Medico medico;
     private Pessoa pessoaMedico;
-
-    private ServicosMedico servicosMedico = new ServicosMedico(getApplicationContext());
-    private ServicosPessoa servicosPessoa = new ServicosPessoa(getApplicationContext());*/
+    private String nomeMedicoString;
+    private String especString;
+    private String crmString;
+    private ServicosMedico servicosMedico;
+    private ServicosPessoa servicosPessoa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,29 +38,38 @@ public class DetalhesMedico extends AppCompatActivity {
         setContentView(R.layout.activity_detalhes_medico);
 
         fotoMedico = findViewById(R.id.fotoMedico);
-        nomeMedico = findViewById(R.id.nomeMedico);
-        especMedico =  findViewById(R.id.especMedico);
+        //nomeMedico = findViewById(R.id.nomeMedico);
+        //especMedico =  findViewById(R.id.especMedico);
         dataCons = findViewById(R.id.datacons);
         turnoCons = findViewById(R.id.turnocons);
+        nomeMedico  = findViewById(R.id.txtNomeMedico);
+        especMedico = findViewById(R.id.txtEspecMedico);
+        crm = findViewById(R.id.idTxtCrm);
 
 
         Intent intent = getIntent();
         data =  intent.getStringExtra("data1");
         turno =  intent.getStringExtra("turno1");
         idmedicoS = intent.getStringExtra("idmedico");
+        diaSemana = intent.getStringExtra("diaSemana1");
         long idmedico = Long.parseLong(idmedicoS);
 
-        /*medico = servicosMedico.getMedico(idmedico);
-        pessoaMedico = servicosPessoa.searchPessoaByIdUsuario(medico.getIdUsuario());*/
+        servicosMedico = new ServicosMedico(getApplicationContext());
+        servicosPessoa = new ServicosPessoa(getApplicationContext());
 
+        medico = servicosMedico.getMedico(idmedico);
+        pessoaMedico = servicosPessoa.searchPessoaByIdUsuario(medico.getIdUsuario());
+        nomeMedicoString = pessoaMedico.getNome().toString();
+        especString = medico.getEspecialidade().toString();
+        crmString = medico.getCrm().toString();
 
-        GuiUtil.myToast(getApplicationContext(), "data" + data + "\nturno" + turno + "\nidmedico" + idmedico);
+        GuiUtil.myToast(getApplicationContext(), "data" + data + "\nturno" + turno + "\nidmedico" + idmedico + "\ndiaSemana " + diaSemana);
 
         dataCons.setText(data);
         turnoCons.setText(turno);
-
-        /*nomeMedico.setText(pessoaMedico.getNome());
-        especMedico.setText(medico.getEspecialidade());*/
+        nomeMedico.setText(nomeMedicoString);
+        especMedico.setText(especString);
+        crm.setText(crmString);
 
 
         /*DadosMedico obj = (DadosMedico) getIntent().getExtras().getSerializable("objeto");

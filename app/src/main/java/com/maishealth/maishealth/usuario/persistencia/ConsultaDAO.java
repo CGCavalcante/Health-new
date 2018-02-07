@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.maishealth.maishealth.infra.DataBase;
 import com.maishealth.maishealth.usuario.dominio.Consulta;
-import com.maishealth.maishealth.usuario.dominio.EnumStatusConsulta;
 
 public class ConsultaDAO {
     private SQLiteDatabase liteDatabase;
@@ -27,9 +26,17 @@ public class ConsultaDAO {
         long idPaciente = consulta.getIdPaciente();
         values.put(colunaIdPaciente, idPaciente);
 
-        String colunaIdDataHorario = DataBase.ID_EST_DATA_HORARIO;
-        long idDataHorario = consulta.getId_data_horario();
-        values.put(colunaIdDataHorario, idDataHorario);
+        String colunaIdMedico = DataBase.ID_EST_MEDICO_CON;
+        long idMedico = consulta.getIdMedico();
+        values.put(colunaIdMedico, idMedico);
+
+        String colunaData = DataBase.DATA;
+        String data = consulta.getData();
+        values.put(colunaData, data);
+
+        String colunaTurno = DataBase.EST_TURNO;
+        String turno = consulta.getTurno();
+        values.put(colunaTurno, turno);
 
         String colunaStatus = DataBase.STATUS_CONSULTA;
         String status = consulta.getStatus();
@@ -48,17 +55,26 @@ public class ConsultaDAO {
 
         String tabela = DataBase.TABELA_CONSULTA;
 
-        String colunaIdDataHorario = DataBase.ID_EST_DATA_HORARIO;
-        long idDataHorario = consulta.getId_data_horario();
-        values.put(colunaIdDataHorario, idDataHorario);
-
-        String colunaStatus = DataBase.STATUS_CONSULTA;
-        String status = consulta.getStatus();
-        values.put(colunaStatus, status);
 
         String colunaPaciente = DataBase.ID_EST_PACIENTE_CON;
         long idPaciente = consulta.getIdPaciente();
         values.put(colunaPaciente, idPaciente);
+
+        String colunaIdDataHorario = DataBase.ID_EST_MEDICO_CON;
+        long idDataHorario = consulta.getIdMedico();
+        values.put(colunaIdDataHorario, idDataHorario);
+
+        String colunaData = DataBase.DATA;
+        String data = consulta.getData();
+        values.put(colunaData, data);
+
+        String colunaTurno = DataBase.EST_TURNO;
+        String turno = consulta.getTurno();
+        values.put(colunaTurno, turno);
+
+        String colunaStatus = DataBase.STATUS_CONSULTA;
+        String status = consulta.getStatus();
+        values.put(colunaStatus, status);
 
         String whereClause = DataBase.ID_CONSULTA + " = ? ";
         String[] parametros = new String[1];
@@ -81,9 +97,17 @@ public class ConsultaDAO {
         int indexColunaIdPaciente = cursor.getColumnIndex(colunaIdPaciente);
         long idPaciente = cursor.getInt(indexColunaIdPaciente);
 
-        String colunaIdDataHorario = DataBase.ID_EST_DATA_HORARIO;
+        String colunaIdDataHorario = DataBase.ID_EST_MEDICO_CON;
         int indexColunaIdDataHorario = cursor.getColumnIndex(colunaIdDataHorario);
         long idDataHorario = cursor.getInt(indexColunaIdDataHorario);
+
+        String colunaData = DataBase.DATA;
+        int indexColunaData = cursor.getColumnIndex(colunaData);
+        String data = cursor.getString(indexColunaData);
+
+        String colunaTurno = DataBase.EST_TURNO;
+        int indexColunaTurno = cursor.getColumnIndex(colunaTurno);
+        String turno = cursor.getString(indexColunaTurno);
 
         String colunaStatus = DataBase.STATUS_CONSULTA;
         int indexColunaStatus = cursor.getColumnIndex(colunaStatus);
@@ -92,9 +116,11 @@ public class ConsultaDAO {
         Consulta consulta = new Consulta();
 
         consulta.setIdPaciente(idPaciente);
-        consulta.setId_data_horario(idDataHorario);
+        consulta.setIdMedico(idDataHorario);
         consulta.setStatus(status);
         consulta.setId(idConsulta);
+        consulta.setData(data);
+        consulta.setTurno(turno);
 
         return consulta;
     }
@@ -116,17 +142,15 @@ public class ConsultaDAO {
         return consulta;
     }
 
-    public Consulta getConsultaDisponivel(long idPaciente, long idDataHorario, long idConsulta) {
+    public Consulta getConsulta(long idMedico, String data, String turno) {
         String query = "SELECT * FROM " + DataBase.TABELA_CONSULTA +
-                " WHERE " + DataBase.ID_EST_PACIENTE_CON + " LIKE ?" +
-                " AND " + DataBase.ID_EST_DATA_HORARIO + " LIKE ?" +
-                    " AND " + DataBase.ID_CONSULTA + " LIKE ?";
+                " WHERE " + DataBase.ID_EST_MEDICO_CON + " LIKE ?" +
+                " AND " + DataBase.DATA + " LIKE ?" +
+                    " AND " + DataBase.EST_TURNO + " LIKE ?";
 
-        String idPacienteString = Long.toString(idPaciente);
-        String idDataHorarioString = Long.toString(idDataHorario);
-        String idConsultaString   = Long.toString(idConsulta);
+        String idMedicoString = Long.toString(idMedico);
 
-        String[] argumentos = {idPacienteString, idDataHorarioString, idConsultaString};
+        String[] argumentos = {idMedicoString, data, turno};
 
         return this.getConsulta(query, argumentos);
     }

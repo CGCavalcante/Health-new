@@ -10,7 +10,7 @@ import com.maishealth.maishealth.infra.DataBase;
 import com.maishealth.maishealth.usuario.dominio.DataHorario;
 
 public class DataHorarioDAO {
-    private SQLiteDatabase liteDatabase;
+    /*private SQLiteDatabase liteDatabase;
     private DataBase dataBaseHelper;
 
     public DataHorarioDAO(Context context) {
@@ -126,5 +126,5 @@ public class DataHorarioDAO {
 
         return this.getDataHorario(query, argumentos);
 
-    }
+    }*/
 }

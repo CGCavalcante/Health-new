@@ -5,7 +5,8 @@ public enum EnumStatusConsulta {
 
     EMANDAMENTO("Em Andamento"),
     CANCELADA ("Cancelada"),
-    CONCLUIDA("Concluida");
+    CONCLUIDA("Concluida"),
+    DISPONIVEL("Disponivel");
 
     private final String valor;
 

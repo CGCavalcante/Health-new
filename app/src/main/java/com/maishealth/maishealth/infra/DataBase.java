@@ -59,7 +59,16 @@ public class DataBase extends SQLiteOpenHelper {
     public static final String VAGAS = "vagas";
     public static final String TURNO = "turno";
     public static final String ID_EST_MEDICO = "id_est_medico";
-    //TABELA DATA-TURNO
+    //TABELA CONSULTA
+    public static final String TABELA_CONSULTA  = "consulta";
+    public static final String ID_CONSULTA = "id_consulta";
+    public static final String ID_EST_MEDICO_CON = "id_medico";
+    public static final String ID_EST_PACIENTE_CON = "id_paciente";
+    public static final String DATA = "data";
+    public static final String EST_TURNO = "turno";
+    public static final String STATUS_CONSULTA = "status_consulta";
+
+   /* //TABELA DATA-TURNO
     public static final String TABELA_DATA_HORARIO = "data_horario";
     public static final String ID_DATA_HORARIO = "id_data_horario";
     public static final String ID_EST_HORARIO_MED = "id_horario_medico";
@@ -70,7 +79,7 @@ public class DataBase extends SQLiteOpenHelper {
     public static final String ID_CONSULTA = "id_consulta";
     public static final String ID_EST_PACIENTE_CON = "id_paciente";
     public static final String ID_EST_DATA_HORARIO = "id_data_horario";
-    public static final String STATUS_CONSULTA = "status_consulta";
+    public static final String STATUS_CONSULTA = "status_consulta";*/
 
     private static final int DATABASE_VERSION = 8;
     private static final String DATABASE_NAME = "dbmaishealth";
@@ -81,16 +90,18 @@ public class DataBase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + TABELA_DATA_HORARIO + " (" +
+        /*db.execSQL("CREATE TABLE " + TABELA_DATA_HORARIO + " (" +
                 ID_DATA_HORARIO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 ID_EST_HORARIO_MED + " INTEGER, " +
                 DATA + " TEXT NOT NULL, " +
-                CONTADOR_REGRESIVO + " INTEGER); ");
+                CONTADOR_REGRESIVO + " INTEGER); ");*/
 
         db.execSQL("CREATE TABLE " + TABELA_CONSULTA + "(" +
                 ID_CONSULTA + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                ID_EST_MEDICO_CON + " INTEGER, " +
                 ID_EST_PACIENTE_CON + " INTEGER, " +
-                ID_EST_DATA_HORARIO + " INTEGER, " +
+                DATA + " INTEGER, " +
+                EST_TURNO + " TEXT NOT NULL ," +
                 STATUS_CONSULTA + " TEXT); ");
 
         db.execSQL("CREATE TABLE " + TABELA_HORARIO_MEDICO + " (" +
@@ -171,8 +182,8 @@ public class DataBase extends SQLiteOpenHelper {
         String query14 = "DROP TABLE IF EXISTS " + TABELA_HORARIO_MEDICO;
         db.execSQL(query14);
 
-        String query15 = "DROP TABLE IF EXISTS " + TABELA_DATA_HORARIO;
-        db.execSQL(query15);
+        /*String query15 = "DROP TABLE IF EXISTS " + TABELA_DATA_HORARIO;
+        db.execSQL(query15);*/
 
         this.onCreate(db);
     }
