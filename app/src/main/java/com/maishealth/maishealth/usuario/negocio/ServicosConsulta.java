@@ -33,7 +33,7 @@ public class ServicosConsulta {
     }
 
     public void atualizarConsulta (long idMedico, String data, String turno ,long idPaciente){
-        Consulta consulta = consultaDAO.getConsulta(idMedico, data, turno);
+        Consulta consulta = consultaDAO.getConsultaDisponivel(idMedico, data, turno);
          if (consulta != null){
              consulta.setTurno(turno);
              consulta.setData(data);
@@ -48,14 +48,20 @@ public class ServicosConsulta {
     public void gerarConsultas(long idMedico, String turno, String data, String diaSemana){
         HorarioMedico horarioMedico = horarioMedicoDAO.getHorarioMedico(idMedico, diaSemana, turno);
         if (horarioMedico != null){
-           String vagasString = Long.toString(horarioMedico.getVagas()) ;
-           int vagas = Integer.getInteger(vagasString);
+           long vagas = horarioMedico.getVagas() ;
+           //int vagas = Integer.getInteger(vagasString);
            int contador = 0;
             while (contador < vagas ){
                 cadastrarConsulta(idMedico,data,turno);
+                contador++;
             }
         }
 
+    }
+
+    public Consulta getConsulta(long idMedico, String turno, String data){
+        Consulta consulta = consultaDAO.getConsultaDisponivel(idMedico, data, turno);
+        return consulta;
     }
 
 }
