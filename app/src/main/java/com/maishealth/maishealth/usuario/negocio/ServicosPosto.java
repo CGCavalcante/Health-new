@@ -28,6 +28,7 @@ public class ServicosPosto {
         pessoaDAO = new PessoaDAO(context);
     }
 
+
     private ArrayList<String> getPessoaByMedico(ArrayList<Medico> medicos) {
         ArrayList<String> pessoasMedico = new ArrayList<>();
         for (Medico medico :medicos){

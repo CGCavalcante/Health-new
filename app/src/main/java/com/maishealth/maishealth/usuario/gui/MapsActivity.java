@@ -2,6 +2,7 @@ package com.maishealth.maishealth.usuario.gui;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationProvider;
@@ -21,6 +22,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -39,7 +42,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private double longitude;
     private double latitude;
     private GoogleApiClient googleApiClient;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,13 +66,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-        // googleMapOptions.mapType(googleMap.MAP_TYPE_HYBRID)
         //    .compassEnabled(true);
 
         // Add a marker in Sydney and move the camera
-        LatLng india = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(india).title("Marker in India"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(india));
+        LatLng posto = new LatLng(-8.0788437, -34.9171057);
+        mMap.addMarker(new MarkerOptions().position(posto).title("posto de teste")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.drugstore_icon)));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(posto));
         mMap.setOnMarkerDragListener(this);
         mMap.setOnMapLongClickListener(this);
     }
