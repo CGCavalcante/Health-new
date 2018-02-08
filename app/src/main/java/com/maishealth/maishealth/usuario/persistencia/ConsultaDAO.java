@@ -7,8 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.maishealth.maishealth.infra.DataBase;
 import com.maishealth.maishealth.usuario.dominio.Consulta;
-import com.maishealth.maishealth.usuario.dominio.EnumStatusConsulta;
-import com.maishealth.maishealth.usuario.negocio.Servicos;
 
 public class ConsultaDAO {
     private SQLiteDatabase liteDatabase;
@@ -144,17 +142,15 @@ public class ConsultaDAO {
         return consulta;
     }
 
-    public Consulta getConsultaDisponivel(long idMedico, String data, String turno) {
+    public Consulta getConsulta(long idMedico, String data, String turno) {
         String query = "SELECT * FROM " + DataBase.TABELA_CONSULTA +
                 " WHERE " + DataBase.ID_EST_MEDICO_CON + " LIKE ?" +
                 " AND " + DataBase.DATA + " LIKE ?" +
-                " AND " + DataBase.EST_TURNO + " LIKE ?" +
-                " AND " + DataBase.STATUS_CONSULTA  + " LIKE ?";
+                    " AND " + DataBase.EST_TURNO + " LIKE ?";
 
         String idMedicoString = Long.toString(idMedico);
-        String status = EnumStatusConsulta.DISPONIVEL.toString();
 
-        String[] argumentos = {idMedicoString, data, turno, status};
+        String[] argumentos = {idMedicoString, data, turno};
 
         return this.getConsulta(query, argumentos);
     }
