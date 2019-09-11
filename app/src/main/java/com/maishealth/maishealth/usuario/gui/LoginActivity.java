@@ -1,11 +1,17 @@
 package com.maishealth.maishealth.usuario.gui;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.maishealth.maishealth.R;
 import com.maishealth.maishealth.infra.GuiUtil;
@@ -21,9 +27,11 @@ import static com.maishealth.maishealth.infra.ConstanteSharedPreferences.PASSWOR
 import static com.maishealth.maishealth.infra.ConstanteSharedPreferences.TITLE_PREFERENCES;
 
 public class LoginActivity extends AppCompatActivity {
-    public static final String EM_CONSTRUÇÃO = "Em construção";
+    public static final String EM_CONSTRUCAO = "Em construcao";
     private EditText edtEmailLogin, edtSenhaLogin;
     private SharedPreferences sharedPreferences;
+    private ImageButton btnEmergencia;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +41,22 @@ public class LoginActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(TITLE_PREFERENCES, MODE_PRIVATE);
         edtEmailLogin = findViewById(R.id.emailx);
         edtSenhaLogin = findViewById(R.id.senhax);
+        btnEmergencia = findViewById(R.id.bt_emerg_2);
 
+        btnEmergencia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:" + "102"));
+
+                if (ActivityCompat.checkSelfPermission(LoginActivity.this,
+                        Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
+                        return;
+                }
+                startActivity(callIntent);
+
+            }
+        });
         String email = sharedPreferences.getString(LOGIN_PREFERENCES, DEFAULT_LOGIN_PREFERENCES);
         String senha = sharedPreferences.getString(PASSWORD_PREFERENCES, DEFAULT_PASSWORD_PREFERENCES);
         if(!email.equals(DEFAULT_LOGIN_PREFERENCES) && !senha.equals(DEFAULT_PASSWORD_PREFERENCES)){
@@ -83,11 +106,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void tela1Cadastro(View view) {
-        this.mudarTela(SignUpActivity.class);
+        this.mudarTela(Cadastrar.class);
     }
 
-    public void acionarEmergencia(View view){
-        GuiUtil.myToast(this, EM_CONSTRUÇÃO);
+    public void emConstrucao(View view) {
+        GuiUtil.myToast(this, EM_CONSTRUCAO);
     }
 
     private void mudarTela(Class proximaTela){
@@ -95,7 +118,8 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-    //public void fecharApp(View view){
-      //  finish();
-    //}
+
+    public void teste(View view) {
+        this.mudarTela(ListaMedicos.class);
+    }
 }

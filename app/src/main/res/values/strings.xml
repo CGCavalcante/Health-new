@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">+Health</string>
+    <string name="app_name">New Health</string>
 
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
@@ -43,7 +43,7 @@
     <string name="error_invalid_spec">Especialidade inválida.</string>
     <string name="error_incorrect_password">Senha incorreta</string>
 
-    <string name="image_logo_2">Plus Health</string>
+    <string name="image_logo_2">New Health</string>
     <string name="image_logopadrao">LogoPadrão</string>
 
     <string name="label_tipo_sangue">Tipo Sanguíneo</string>
@@ -121,7 +121,7 @@
     <string name="texto_data_nasc_pac">Data de nascimento</string>
     <string name="text_tipo_sangue_med">Tipo sanguineo</string>
     <string name="textSintomas">Sintomas</string>
-    <string name="textMarcarEsp">Especialidade</string>
+    <string name="textMarcarSint">Marque aqui seus sintomas</string>
     <string name="text_view_dia_marc_cons">Dia marcado para consulta</string>
     <string name="text_dia_marc_cons">Preencher aqui dia da consulta</string>
     <string name="text_view_nome_med_cons">Nome do médico</string>
@@ -137,8 +137,8 @@
     <string name="text_view_prog_cons">Prognóstico/Tratamento/Observações</string>
     <string name="texto_esp_med_cons">Prencher aqui a espec do med da cons</string>
     <string name="texto_atualizar_perfil_med">Atualizar Perfil</string>
-    <string name="texto_sintomas">Algum sintoma? Digite aqui</string>
-    <string name="texto_sub_marc">Para marcar a consulta, escolha a especialidade e informe os sintomas</string>
+    <string name="texto_outros_sint">Outros sintomas? Digite aqui</string>
+    <string name="texto_sub_marc">Para marcar a consulta, primeiro informe seus sintomas</string>
     <string name="title_activity_escolher_especialidade">EscolherEspecialidade</string>
 
     <string name="User">Usuário</string>
@@ -148,14 +148,14 @@
     <string name="text_view_trat_cons_esc">Tratamento</string>
     <string name="text_view_dia_cons_esc">Dia 01/01/2018</string>
     <string name="nome_do_paciente">Nome do paciente</string>
-    <string name="cardiologia">CARDIOLOGIA</string>
-    <string name="clinico_geral">CLÍNICO GERAL</string>
-    <string name="pediatria">PEDIATRIA</string>
-    <string name="ginecologia">GINECOLOGIA</string>
-    <string name="urologia">UROLOGIA</string>
-    <string name="dermatologia">DERMATOLOGIA</string>
-    <string name="ortopedia">ORTOPEDIA</string>
-    <string name="oftalmologia">OFTALMOLOGIA</string>
+    <string name="olhos_inchados">Olhos inchados</string>
+    <string name="febre">Febre</string>
+    <string name="dor_abdominal">Dor abdominal</string>
+    <string name="bolhas">Bolhas</string>
+    <string name="coceira">Coceira</string>
+    <string name="dores_de_cabeca">Dores de cabeça</string>
+    <string name="ardencia_nos_olhos">Ardência nos olhos</string>
+    <string name="enjoo">Enjoo</string>
 
     <string name="button_confirmar_hor_mont_med">Confirmar</string>
     <string name="text_view_hor_montado_med">Horário</string>
@@ -179,5 +179,16 @@
     <string name="about">This example shows different CoordinatorLayout usage examples, like the use of \'anchor\' in views,</string>
     <string name="swype.help">The \'Swipe to dismiss\' behavior allows you to easily add the \'Swipe to dismiss\' functionality in a View inside a CoordinatorLayout</string>
     <string name="subtitle_mup">Here I am with a subtitle</string>
+    <string name="oi">oi</string>
+    <string name="textView">Textview</string>
+    <string name="data">Data</string>
+    <string name="nome">Nome</string>
+    <string name="especialidade">Especialidade</string>
+    <string name="dias_semana">Dias da Semana</string>
+    <string name="lista_de_medicos">Lista de Medicos</string>
+    <string name="voltar">Voltar</string>
+    <string name="turnos">Turnos</string>
+    <string name="title_activity_maps">Localização de postos</string>
+
 
 </resources>

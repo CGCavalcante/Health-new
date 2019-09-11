@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    tools:context="com.maishealth.maishealth.usuario.gui.SignUpActivity">
+    tools:context="com.maishealth.maishealth.usuario.gui.Cadastrar">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -33,17 +34,19 @@
                     android:layout_marginBottom="@dimen/margin_bottom_mini_label"
                     android:text="@string/switch_paciente"
                     android:textColorLink="#fa0202"
+                    android:textOff="Pac"
+                    android:textOn="Med"
                     tools:text="Médico" />
 
                 <View
                     android:id="@+id/view"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/divider_thickness"
-                    android:layout_marginTop="@dimen/divider_left_and_right"
                     android:layout_marginBottom="@dimen/divider_left_and_right"
-                    android:layout_marginStart="@dimen/margin_start_divide"
                     android:layout_marginEnd="@dimen/margin_end_divide"
-                    android:background="@color/divider"/>
+                    android:layout_marginStart="@dimen/margin_start_divide"
+                    android:layout_marginTop="@dimen/divider_left_and_right"
+                    android:background="@color/divider" />
 
                 <EditText
                     android:id="@+id/edtEmail3"
@@ -92,8 +95,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/margin_top_mini_label"
                     android:layout_marginBottom="@dimen/margin_bottom_mini_label"
+                    android:layout_marginTop="@dimen/margin_top_mini_label"
                     android:text="@string/label_sexo" />
 
                 <Spinner
@@ -143,8 +146,8 @@
                     android:inputType="number"
                     android:visibility="invisible" />
 
-                <EditText
-                    android:id="@+id/edtEspec3"
+                <Spinner
+                    android:id="@+id/SpnEspecialidade"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -157,33 +160,24 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <Button
+                    <ImageView
                         android:id="@+id/btnCancelar3"
                         style="?android:attr/buttonBarButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
+                        android:layout_width="67dp"
+                        android:layout_height="67dp"
                         android:layout_margin="8dp"
                         android:layout_weight="1"
-                        android:background="@color/colorText"
                         android:onClick="voltarTelaLogin"
-                        android:text="@string/button_cancelar"
-                        android:textColor="@color/colorTextoBut"
-                        android:textStyle="bold" />
+                        app:srcCompat="@android:drawable/ic_delete" />
 
-                    <Button
+                    <ImageView
                         android:id="@+id/btnCadastrar3"
                         style="?android:attr/buttonBarButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_margin="8dp"
+                        android:layout_width="67dp"
+                        android:layout_height="67dp"
                         android:layout_weight="1"
-                        android:background="@color/colorText"
                         android:onClick="onClickCadastrar"
-                        android:text="@string/button_cadastrar"
-                        android:textColor="@color/colorTextoBut"
-                        android:textStyle="bold" />
+                        app:srcCompat="@mipmap/ic_launcher_ok" />
 
                 </LinearLayout>
 
